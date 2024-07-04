@@ -1,0 +1,13 @@
+{
+	"locale-btn": {
+		"en": "English",
+		"ua": "Ukrainian"
+	},
+	"top-nav": {
+		"matches": "Matches",
+		"lists": "Lists",
+		"messages": "Messages",
+		"login": "Login",
+		"register": "Register"
+	}
+}

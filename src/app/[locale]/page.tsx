@@ -11,9 +11,8 @@ export default function Home() {
 				href='/members'
 				color='primary'
 				variant='bordered'
-				startContent={<FaRegSadCry size={20} />}>
-				asdas
-			</Button>
+				startContent={<FaRegSadCry size={20} />}
+			></Button>
 		</>
 	)
 }
