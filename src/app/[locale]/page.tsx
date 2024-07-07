@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { Button } from '@nextui-org/react'
+import Link from 'next/link'
 import { FaRegSadCry } from 'react-icons/fa'
 
 export default function Home() {

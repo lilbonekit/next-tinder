@@ -1,5 +1,5 @@
-import { BsFillBalloonHeartFill } from 'react-icons/bs'
 import { Link as NextUILink } from '@nextui-org/react'
+import { BsFillBalloonHeartFill } from 'react-icons/bs'
 
 const TopNavLogo = () => {
 	return (

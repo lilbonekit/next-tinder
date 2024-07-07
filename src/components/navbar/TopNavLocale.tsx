@@ -1,30 +1,30 @@
 'use client'
 
-import { useState, useMemo, useEffect } from 'react'
 import {
-	Dropdown,
-	DropdownTrigger,
-	DropdownMenu,
-	DropdownItem,
-	Spinner,
 	Button,
+	Dropdown,
+	DropdownItem,
+	DropdownMenu,
+	DropdownTrigger,
+	Selection,
+	Spinner,
 } from '@nextui-org/react'
+import { usePathname, useRouter } from 'navigation'
+import { useLocale, useTranslations } from 'next-intl'
+import { useEffect, useMemo, useState } from 'react'
 import { RiGlobalLine } from 'react-icons/ri'
-import { Selection } from '@nextui-org/react'
-import { useTranslations } from 'next-intl'
-import { useRouter } from 'navigation'
-import { useLocale } from 'next-intl'
 
 const TopNavLocale = () => {
 	const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['']))
-	const [isLoading, setIsLoading] = useState<Boolean>(true)
+	const [isLoading, setIsLoading] = useState<boolean>(true)
 	const selectedValue = useMemo(
 		() => Array.from(selectedKeys).join(', ').replaceAll('_', ' '),
-		[selectedKeys],
+		[selectedKeys]
 	)
 	const locale = useLocale()
 	const t = useTranslations('locale-btn')
 	const router = useRouter()
+	const pathname = usePathname()
 
 	useEffect(() => {
 		setSelectedKeys(new Set([locale]) as Selection)
@@ -58,13 +58,13 @@ const TopNavLocale = () => {
 			>
 				<DropdownItem
 					key='en'
-					onClick={() => router.replace('/', { locale: 'en' })}
+					onClick={() => router.replace(pathname, { locale: 'en' })}
 				>
 					{t('en')}
 				</DropdownItem>
 				<DropdownItem
 					key='ua'
-					onClick={() => router.replace('/', { locale: 'ua' })}
+					onClick={() => router.replace(pathname, { locale: 'ua' })}
 				>
 					{t('ua')}
 				</DropdownItem>

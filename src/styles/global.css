@@ -15,6 +15,10 @@
 		@apply active-link text-light-gradient;
 	}
 
+	.vertical-center {
+		height: calc(100vh - 64px);
+	}
+
 	.active-link::after {
 		transition: 0.3s all ease;
 		content: '';

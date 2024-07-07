@@ -1,8 +1,10 @@
-import type { Metadata } from 'next'
-import Providers from '@/components/Providers'
-import TopNav from '@/components/navbar/TopNav'
-
 import '@/styles/global.css'
+
+import type { Metadata } from 'next'
+import { ReactNode } from 'react'
+
+import TopNav from '@/components/navbar/TopNav'
+import Providers from '@/components/Providers'
 
 export const metadata: Metadata = {
 	title: 'Next chat',
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 interface RootLayoutProps {
-	children: React.ReactNode
+	children: ReactNode
 	params: { locale: string }
 }
 
@@ -18,13 +20,12 @@ export default function RootLayout({
 	children,
 	params: { locale },
 }: Readonly<RootLayoutProps>) {
-	console.log(locale)
 	return (
 		<html lang={locale}>
 			<body>
 				<Providers>
 					<TopNav />
-					<main className='container max-auto p-10'>{children}</main>
+					<main className='container mx-auto'>{children}</main>
 				</Providers>
 			</body>
 		</html>

@@ -9,5 +9,32 @@
 		"messages": "Повідомлення",
 		"login": "Увійти",
 		"register": "Зареєструватися"
+	},
+	"login-form": {
+		"title": "Логін",
+		"description": "Ласкаво просимо назад до Next Tinder!",
+		"email-lbl": "Електронна пошта",
+		"password-lbl": "Пароль",
+		"submit-lbl": "Увійти",
+		"email-required": "Електронна пошта є обов'язковою",
+		"email-invalid": "Неправильна електронна адреса",
+		"password-required": "Пароль є обов'язковим",
+		"password-length": "Довжина паролю повинна бути більше 5 символів",
+		"invalid-field": "Неправильно заповнене поле"
+	},
+	"register-form": {
+		"title": "Реєстрація",
+		"description": "Ласкаво просимо до Next Tinder!",
+		"name-lbl": "Логін",
+		"email-lbl": "Електронна пошта",
+		"password-lbl": "Пароль",
+		"submit-lbl": "Зареєструватися",
+		"name-required": "Логін є обов'язковим",
+		"name-length": "Довжина логіну має бути більше за 3 символи",
+		"email-required": "Електронна пошта є обов'язковою",
+		"email-invalid": "Неправильна електронна адреса",
+		"password-required": "Пароль є обов'язковим",
+		"password-length": "Довжина паролю повинна бути більше 5 символів",
+		"invalid-field": "Неправильно заповнене поле"
 	}
 }

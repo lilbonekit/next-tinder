@@ -1,7 +1,7 @@
 'use client'
 
-import { Link } from 'navigation'
 import { Button } from '@nextui-org/react'
+import { Link } from 'navigation'
 
 interface TopNavLinkAuthProps {
 	href: string

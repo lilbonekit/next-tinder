@@ -1,9 +1,10 @@
+import { Navbar, NavbarBrand, NavbarContent } from '@nextui-org/react'
+import { useTranslations } from 'next-intl'
+
 import TopNavLink from '@/components/navbar/TopNavLink'
+import TopNavLinkAuth from '@/components/navbar/TopNavLinkAuth'
 import TopNavLocale from '@/components/navbar/TopNavLocale'
 import TopNavLogo from '@/components/navbar/TopNavLogo'
-import TopNavLinkAuth from '@/components/navbar/TopNavLinkAuth'
-import { Navbar, NavbarContent, NavbarBrand, Link } from '@nextui-org/react'
-import { useTranslations } from 'next-intl'
 
 const TopNav = () => {
 	const t = useTranslations('top-nav')

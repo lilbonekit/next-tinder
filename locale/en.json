@@ -9,5 +9,32 @@
 		"messages": "Messages",
 		"login": "Login",
 		"register": "Register"
+	},
+	"login-form": {
+		"title": "Login",
+		"description": "Welcome back to Next Tinder!",
+		"email-lbl": "Email",
+		"password-lbl": "Password",
+		"submit-lbl": "Sign in",
+		"email-required": "Email is required",
+		"email-invalid": "Invalid email",
+		"password-required": "Password is required",
+		"password-length": "Password length must contain more than 5 characters",
+		"invalid-field": "Invalid field"
+	},
+	"register-form": {
+		"title": "Register",
+		"description": "Welcome to Next Tinder!",
+		"name-lbl": "Name",
+		"email-lbl": "Email",
+		"password-lbl": "Password",
+		"submit-lbl": "Create an account",
+		"email-required": "Email is required",
+		"email-invalid": "Invalid email",
+		"name-required": "Login is required",
+		"name-length": "Login length must be more than 3 characters",
+		"password-required": "Password is required",
+		"password-length": "Password length must contain more than 5 characters",
+		"invalid-field": "Invalid field"
 	}
 }
