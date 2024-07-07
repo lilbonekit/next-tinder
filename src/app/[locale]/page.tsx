@@ -1,5 +1,4 @@
 import { Button } from '@nextui-org/react'
-import Link from 'next/link'
 import { FaRegSadCry } from 'react-icons/fa'
 
 export default function Home() {
@@ -7,7 +6,6 @@ export default function Home() {
 		<>
 			JSON
 			<Button
-				as={Link}
 				href='/members'
 				color='primary'
 				variant='bordered'

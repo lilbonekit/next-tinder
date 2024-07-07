@@ -1,4 +1,8 @@
 {
+	"logo": {
+		"next": "Next",
+		"tinder": "Tinder"
+	},
 	"locale-btn": {
 		"en": "Англійська",
 		"ua": "Українська"
