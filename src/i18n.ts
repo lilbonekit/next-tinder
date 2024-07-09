@@ -6,7 +6,7 @@ const locales = ['en', 'ua']
 
 export default getRequestConfig(async ({ locale }) => {
 	// Validate that the incoming `locale` parameter is valid
-	if (!locales.includes(locale as any)) notFound()
+	if (!locales.includes(locale as 'en' | 'ua')) notFound()
 
 	return {
 		messages: (await import(`../locale/${locale}.json`)).default,

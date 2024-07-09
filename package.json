@@ -9,10 +9,14 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@auth/prisma-adapter": "^2.4.1",
 		"@hookform/resolvers": "^3.9.0",
 		"@nextui-org/react": "^2.4.2",
+		"@prisma/client": "^5.16.2",
+		"bcryptjs": "^2.4.3",
 		"framer-motion": "^11.2.12",
 		"next": "14.2.4",
+		"next-auth": "^5.0.0-beta.19",
 		"next-intl": "^3.15.3",
 		"react": "^18",
 		"react-dom": "^18",
@@ -21,6 +25,7 @@
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
+		"@types/bcryptjs": "^2.4.6",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
@@ -37,6 +42,7 @@
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"postcss": "^8",
 		"prettier": "^2.8.8",
+		"prisma": "^5.16.2",
 		"tailwindcss": "^3.4.1",
 		"typescript": "^4.9.5"
 	}
