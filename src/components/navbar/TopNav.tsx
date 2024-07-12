@@ -1,13 +1,17 @@
 import { Navbar, NavbarBrand, NavbarContent } from '@nextui-org/react'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 
+import { auth } from '@/auth'
 import TopNavLink from '@/components/navbar/TopNavLink'
 import TopNavLinkAuth from '@/components/navbar/TopNavLinkAuth'
 import TopNavLocale from '@/components/navbar/TopNavLocale'
 import TopNavLogo from '@/components/navbar/TopNavLogo'
 
-const TopNav = () => {
-	const t = useTranslations('top-nav')
+import TopNavUser from './TopNavUser'
+
+const TopNav = async () => {
+	const t = await getTranslations('top-nav')
+	const session = await auth()
 
 	const navItems = [
 		{
@@ -41,15 +45,20 @@ const TopNav = () => {
 				<TopNavLogo />
 			</NavbarBrand>
 			<NavbarContent justify='center'>
-				{navItems.map(({ label, href }) => (
-					<TopNavLink key={label} label={label} href={href} />
-				))}
+				{session?.user &&
+					navItems.map(({ label, href }) => (
+						<TopNavLink key={label} label={label} href={href} />
+					))}
 			</NavbarContent>
 			<NavbarContent justify='end'>
 				<TopNavLocale />
-				{navItemsButton.map(({ href, label }) => (
-					<TopNavLinkAuth href={href} label={label} key={label} />
-				))}
+				{session?.user ? (
+					<TopNavUser user={session.user} />
+				) : (
+					navItemsButton.map(({ href, label }) => (
+						<TopNavLinkAuth href={href} label={label} key={label} />
+					))
+				)}
 			</NavbarContent>
 		</Navbar>
 	)

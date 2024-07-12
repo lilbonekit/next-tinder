@@ -2,25 +2,38 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Card, CardBody, CardHeader, Input } from '@nextui-org/react'
+import { loginUser } from 'app/actions/authActions'
+import { useRouter } from 'navigation'
 import { useTranslations } from 'next-intl'
 import { FieldError, useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 import { formLoginSchema, LoginSchema } from '@/lib/schemas/loginSchema'
 
 const LoginForm = () => {
+	const router = useRouter()
 	const t = useTranslations('login-form')
 
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isSubmitting },
 	} = useForm<LoginSchema>({
 		resolver: zodResolver(formLoginSchema),
 		mode: 'onTouched',
 	})
 
-	const onSubmit = (data: LoginSchema) => {
-		console.log(data)
+	const onSubmit = async (data: LoginSchema) => {
+		const result = await loginUser(data)
+
+		if (result.status !== 'success') {
+			toast.error(t(result.error))
+			return
+		}
+
+		toast.success(t('login-successfully'))
+		router.push('/members')
+		router.refresh()
 	}
 
 	const getErrorMessage = (fieldError?: FieldError) => {
@@ -66,9 +79,11 @@ const LoginForm = () => {
 							/>
 							<Button
 								fullWidth
+								isLoading={isSubmitting}
 								className='main-gradient'
 								size='lg'
 								type='submit'
+								color='primary'
 							>
 								<span className='text-light-gradient'>{t('submit-lbl')}</span>
 							</Button>

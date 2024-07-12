@@ -48,7 +48,7 @@ const TopNavLocale = () => {
 			)}
 
 			<DropdownMenu
-				aria-label='Single selection example'
+				aria-label={t('aria-label')}
 				variant='flat'
 				disallowEmptySelection
 				selectionMode='single'

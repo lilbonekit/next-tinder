@@ -5,7 +5,8 @@
 	},
 	"locale-btn": {
 		"en": "English",
-		"ua": "Ukrainian"
+		"ua": "Ukrainian",
+		"aria-label": "Locale toggler"
 	},
 	"top-nav": {
 		"matches": "Matches",
@@ -13,6 +14,13 @@
 		"messages": "Messages",
 		"login": "Login",
 		"register": "Register"
+	},
+	"top-nav-user": {
+		"user-avatar": "User avatar",
+		"aria-label": "User menu",
+		"aria-label-username": "User name",
+		"edit-profile": "Edit profile",
+		"log-out": "Log out"
 	},
 	"login-form": {
 		"title": "Login",
@@ -24,7 +32,10 @@
 		"email-invalid": "Invalid email",
 		"password-required": "Password is required",
 		"password-length": "Password length must contain more than 5 characters",
-		"invalid-field": "Invalid field"
+		"login-successfully": "You have been login in successfully",
+		"invalid-field": "Invalid field",
+		"invalid-credentials": "The user name or password that you entered is not valid",
+		"something-wrong": "Something went wrong!"
 	},
 	"register-form": {
 		"title": "Register",
@@ -39,6 +50,9 @@
 		"name-length": "Login length must be more than 3 characters",
 		"password-required": "Password is required",
 		"password-length": "Password length must contain more than 5 characters",
-		"invalid-field": "Invalid field"
+		"invalid-field": "Invalid field",
+		"user-exists": "This user exists!",
+		"something-wrong": "Something went wrong",
+		"user-registered": "You have registered successfully"
 	}
 }

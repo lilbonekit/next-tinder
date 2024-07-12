@@ -3,8 +3,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Card, CardBody, CardHeader, Input } from '@nextui-org/react'
 import { registerUser } from 'app/actions/authActions'
+import { useRouter } from 'navigation'
 import { useTranslations } from 'next-intl'
 import { FieldError, useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 import {
 	formRegisterSchema,
@@ -13,11 +15,13 @@ import {
 
 const RegisterForm = () => {
 	const t = useTranslations('register-form')
+	const router = useRouter()
 
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		setError,
+		formState: { errors, isSubmitting },
 	} = useForm<RegisterSchema>({
 		resolver: zodResolver(formRegisterSchema),
 		mode: 'onTouched',
@@ -25,7 +29,26 @@ const RegisterForm = () => {
 
 	const onSubmit = async (data: RegisterSchema) => {
 		const result = await registerUser(data)
-		console.log(result)
+
+		switch (result.status) {
+			case 'success':
+				toast.success(t('user-registered'))
+				router.push('/login')
+				break
+			default:
+				if (Array.isArray(result.error)) {
+					result.error.forEach((error) => {
+						const fieldName = error.path.join('.') as
+							| 'email'
+							| 'name'
+							| 'password'
+						setError(fieldName, { message: error.message })
+					})
+					return
+				}
+				setError('root.serverError', { message: result.error })
+				break
+		}
 	}
 
 	const getErrorMessage = (fieldError?: FieldError) => {
@@ -79,11 +102,18 @@ const RegisterForm = () => {
 								autoComplete='current-password'
 								errorMessage={getErrorMessage(errors.password)}
 							/>
+							{errors.root?.serverError && (
+								<p className='text-danger text-sm'>
+									{t(errors.root.serverError.message)}
+								</p>
+							)}
 							<Button
 								fullWidth
+								isLoading={isSubmitting}
 								className='main-gradient'
 								size='lg'
 								type='submit'
+								color='primary'
 							>
 								<span className='text-light-gradient'>{t('submit-lbl')}</span>
 							</Button>
