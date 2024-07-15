@@ -33,6 +33,7 @@ const TopNavUser = ({ user }: TopNavUserProps) => {
 		<Dropdown backdrop='blur'>
 			<DropdownTrigger>
 				<Avatar
+					showFallback
 					as='button'
 					className='transition-transform light-gradient'
 					classNames={{ name: 'font-semibold text-main-gradient' }}
@@ -54,6 +55,7 @@ const TopNavUser = ({ user }: TopNavUserProps) => {
 							description={user?.email}
 							avatarProps={{
 								...(user?.image ? { src: user?.image } : {}),
+								showFallback: true,
 								className: 'transition-transform light-gradient',
 								classNames: { name: 'font-semibold text-main-gradient' },
 							}}

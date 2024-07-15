@@ -34,7 +34,10 @@
       ],
       "@/lib/*": [
         "lib/*"
-      ]
+      ],
+      "@/prisma/*": [
+        "prisma/*"
+      ],
     },
     "forceConsistentCasingInFileNames": true
   },

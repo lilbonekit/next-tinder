@@ -54,5 +54,34 @@
 		"user-exists": "This user exists!",
 		"something-wrong": "Something went wrong",
 		"user-registered": "You have registered successfully"
+	},
+	"members-sidebar": {
+		"profile": "Profile",
+		"photos": "Photos",
+		"photos-alt": "The image of member",
+		"chat": "Chat",
+		"profile-alt": "User profile main page",
+		"back-btn":" Go back"
+	},
+	"member-detailed": {
+		"title": "Profile",
+		"photos": "Gallery",
+		"photos-alt": "The image of member",
+		"chat": "Conversation with {name}"
+	},
+	"loading": {
+		"label": "Loading..."
+	},
+	"not-found": {
+		"title": "404",
+		"description": "The page you are looking for doesn't exist"
+	},
+	"error": {
+		"title": "Something went wrong!",
+		"alt": "Error icon",
+		"error-default": "Try to refresh the page or visit it later...",
+		"failed-to-load-user": "Failed to load user's info",
+		"failed-to-load-users": "Failed to load users info",
+		"failed-to-load-photos": "Failed to load user's photos"
 	}
 }
