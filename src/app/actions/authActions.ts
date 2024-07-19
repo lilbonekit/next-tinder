@@ -6,7 +6,7 @@ import { redirect } from 'navigation'
 import { AuthError, CredentialsSignin } from 'next-auth'
 import { ActionResult } from 'types'
 
-import { signIn, signOut } from '@/auth'
+import { auth, signIn, signOut } from '@/auth'
 import { prisma } from '@/lib/prisma'
 import { LoginSchema } from '@/lib/schemas/loginSchema'
 import {
@@ -85,4 +85,13 @@ export async function getUserById(id: string) {
 	return prisma.user.findUnique({
 		where: { id },
 	})
+}
+
+export async function getAuthUserId() {
+	const session = await auth()
+	const userId = session?.user?.id
+
+	if (!userId) throw new Error('unathorized')
+
+	return userId
 }

@@ -32,7 +32,7 @@
 		"email-invalid": "Invalid email",
 		"password-required": "Password is required",
 		"password-length": "Password length must contain more than 5 characters",
-		"login-successfully": "You have been login in successfully",
+		"login-successfully": "You have been logged in successfully",
 		"invalid-field": "Invalid field",
 		"invalid-credentials": "The user name or password that you entered is not valid",
 		"something-wrong": "Something went wrong!"
@@ -74,7 +74,8 @@
 	},
 	"not-found": {
 		"title": "404",
-		"description": "The page you are looking for doesn't exist"
+		"description": "The page you are looking for doesn't exist",
+		"alt": "404"
 	},
 	"error": {
 		"title": "Something went wrong!",
@@ -83,5 +84,12 @@
 		"failed-to-load-user": "Failed to load user's info",
 		"failed-to-load-users": "Failed to load users info",
 		"failed-to-load-photos": "Failed to load user's photos"
+	},
+	"list-tabs": {
+		"source-lbl": "My likes",
+		"target-lbl": "Likes me",
+		"mutual-lbl": "Mutual",
+		"aria-label": "Like tabs",
+		"no-members": "No members for this filter"
 	}
 }

@@ -4,10 +4,10 @@ import { Link } from 'navigation'
 
 import { MembersCard, MembersCardProps } from './MembersCard'
 
-export const MembersCardClient = ({ member }: MembersCardProps) => {
+export const MembersCardClient = ({ member, likeIds }: MembersCardProps) => {
 	return (
 		<Link href={`/members/${member.userId}`}>
-			<MembersCard member={member} />
+			<MembersCard member={member} likeIds={likeIds} />
 		</Link>
 	)
 }
