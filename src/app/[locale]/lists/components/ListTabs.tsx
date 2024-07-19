@@ -61,7 +61,7 @@ export const ListTabs = ({ members, likeIds }: ListTabsProps) => {
 									))}
 								</div>
 							) : (
-								<span className='mt-48 text-center text-neutral-500 block mx-auto font-light'>
+								<span className='fixed inset-0 flex justify-center items-center text-neutral-500 font-light z-[-1]'>
 									{t('no-members')}
 								</span>
 							)}
