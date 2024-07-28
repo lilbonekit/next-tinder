@@ -61,7 +61,7 @@ export const EditForm = ({ member }: EditFormProps) => {
 	}, [member, reset])
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
+		<form onSubmit={handleSubmit(onSubmit)} className='mb-32'>
 			<Input
 				{...register('name')}
 				size='md'

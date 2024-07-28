@@ -1,5 +1,6 @@
 'use client'
 
+import { ScrollShadow } from '@nextui-org/react'
 import { Photo } from '@prisma/client'
 import { deleteImage, setMainImage } from 'app/actions/userActions'
 import { useRouter } from 'navigation'
@@ -55,7 +56,11 @@ export const MembersPhotos = ({
 	return (
 		<>
 			{photos && photos.length ? (
-				<div className='flex gap-3 flex-wrap items-center h-max'>
+				<ScrollShadow
+					hideScrollBar
+					size={100}
+					className='flex gap-3 flex-wrap items-center h-max'
+				>
 					{photos.map((photo) => (
 						<div key={photo.id} className='relative'>
 							<MemberImage alt={alt} photo={photo} key={photo.id} />
@@ -90,7 +95,7 @@ export const MembersPhotos = ({
 							)}
 						</div>
 					))}
-				</div>
+				</ScrollShadow>
 			) : (
 				<div className='flex justify-center items-center w-full h-full'>
 					<span className='text-neutral-500 font-light text-center'>
