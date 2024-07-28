@@ -58,7 +58,7 @@ model Member {
 model Photo {
   id       String  @id @default(cuid())
   url      String
-  publicId String?
+  publicId String? @unique
 
   memberId String
   member   Member @relation(fields: [memberId], references: [id], onDelete: Cascade)

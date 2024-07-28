@@ -1,41 +1,36 @@
 import { Card } from '@nextui-org/react'
+import { getAuthUserId } from 'app/actions/authActions'
 import { getMemberByUserId } from 'app/actions/membersActions'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import { ReactNode } from 'react'
 import { CgProfile } from 'react-icons/cg'
-import { FiMessageCircle } from 'react-icons/fi'
 import { TbPhotoCircle } from 'react-icons/tb'
 
 import { MembersSidebar } from '../components/MembersSidebar'
 
-interface MembersLayoutProps {
+interface MemberLayoutProps {
 	children: ReactNode
-	params: { userId: string }
 }
 
-const MembersLayout = async ({ children, params }: MembersLayoutProps) => {
-	const member = await getMemberByUserId(params.userId)
+const MemberLayout = async ({ children }: MemberLayoutProps) => {
+	const userId = await getAuthUserId()
+	const member = await getMemberByUserId(userId)
 
 	if (!member) return notFound()
 
-	const t = await getTranslations('members-sidebar')
-	const basePath = `/members/${member.userId}`
+	const t = await getTranslations('member')
+	const basePath = `/members/edit`
 	const navLinks = [
 		{
-			name: t('profile'),
+			name: t('edit-profile'),
 			href: `${basePath}`,
 			icon: <CgProfile size={22} />,
 		},
 		{
-			name: t('photos'),
+			name: t('update-photos'),
 			href: `${basePath}/photos`,
 			icon: <TbPhotoCircle size={22} />,
-		},
-		{
-			name: t('chat'),
-			href: `${basePath}/chat`,
-			icon: <FiMessageCircle size={22} />,
 		},
 	]
 
@@ -51,4 +46,4 @@ const MembersLayout = async ({ children, params }: MembersLayoutProps) => {
 	)
 }
 
-export default MembersLayout
+export default MemberLayout

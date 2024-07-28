@@ -67,6 +67,7 @@
 		"title": "Profile",
 		"photos": "Gallery",
 		"photos-alt": "The image of member",
+		"no-photos": "{name} hasn't added any photos yet",
 		"chat": "Conversation with {name}"
 	},
 	"loading": {
@@ -91,5 +92,37 @@
 		"mutual-lbl": "Mutual",
 		"aria-label": "Like tabs",
 		"no-members": "No members for this filter"
+	},
+	"member": {
+		"edit-profile": "Edit profile",
+		"update-photos": "Update photos"
+	},
+	"member-edit": {
+		"title": "Edit profile"
+	},
+	"edit-form": {
+		"name-lbl": "Name",
+		"invalid-field": "Invalid field",
+		"description-lbl": "Description",
+		"country-lbl": "Country",
+		"city-lbl": "City",
+		"name-required": "Name is required",
+		"name-length": "Login length must be more than 3 characters",
+		"description-required": "Description is required",
+		"city-required": "City is required",
+		"country": "Country is required",
+		"submit-lbl": "Submit",
+		"profile-updated": "The profile has been updated successfully",
+		"invalid-data": "Incorrect data has been entered",
+		"something-wrong": "Something went wrong!"
+	},
+	"photos-page": {
+		"title": "My gallery",
+		"photos-alt":"The image of member",
+		"no-photos": "No photos added yet"
+	},
+	"image-upload-button": {
+		"text": "Upload new image",
+		"problem-adding-image": "Problem adding image"
 	}
 }

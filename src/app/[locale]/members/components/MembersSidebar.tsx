@@ -1,39 +1,23 @@
 import { Card, CardBody, CardFooter, Divider, Image } from '@nextui-org/react'
 import { Member } from '@prisma/client'
 import { useTranslations } from 'next-intl'
-import { CgProfile } from 'react-icons/cg'
-import { FiMessageCircle } from 'react-icons/fi'
-import { TbPhotoCircle } from 'react-icons/tb'
 
-import { calculateAge } from '@/lib/util'
+import { calculateAge, transformImageUrl } from '@/lib/util'
 
 import { MembersSidebarBack } from './MembersSidebarBack'
 import { MembersSidebarLink } from './MembersSidebarLink'
 
 interface MembersSidebarProps {
 	member: Member
+	navLinks: {
+		name: string
+		href: string
+		icon: JSX.Element
+	}[]
 }
 
-export const MembersSidebar = ({ member }: MembersSidebarProps) => {
+export const MembersSidebar = ({ member, navLinks }: MembersSidebarProps) => {
 	const t = useTranslations('members-sidebar')
-	const basePath = `/members/${member.userId}`
-	const navLinks = [
-		{
-			name: t('profile'),
-			href: `${basePath}`,
-			icon: <CgProfile size={22} />,
-		},
-		{
-			name: t('photos'),
-			href: `${basePath}/photos`,
-			icon: <TbPhotoCircle size={22} />,
-		},
-		{
-			name: t('chat'),
-			href: `${basePath}/chat`,
-			icon: <FiMessageCircle size={22} />,
-		},
-	]
 
 	return (
 		<Card className='w-full mt-10 items-center h-[80vh]'>
@@ -42,7 +26,10 @@ export const MembersSidebar = ({ member }: MembersSidebarProps) => {
 					isBlurred
 					height={200}
 					width={200}
-					src={member.image || '/images/user.png'}
+					src={
+						transformImageUrl(member.image as string | undefined) ||
+						'/images/user.png'
+					}
 					alt={t('profile-alt')}
 					className='rounded-full aspect-square object-cover'
 				/>

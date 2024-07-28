@@ -13,9 +13,10 @@ const MemberDetailedPage = async ({
 	params: { userId },
 }: MemberDetailedPageProps) => {
 	const member = await getMemberByUserId(userId)
-	const t = await getTranslations('member-detailed')
 
 	if (!member) return notFound()
+
+	const t = await getTranslations('member-detailed')
 
 	return (
 		<>

@@ -6,14 +6,17 @@ import {
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 
+import { MembersPhotos } from '@/components/MembersPhotos'
+
 import { MemberDetailedPageProps } from '../page'
 
 const GalleryPage = async ({ params: { userId } }: MemberDetailedPageProps) => {
 	const member = await getMemberByUserId(userId)
 	const photos = await getMemberPhotosByUserId(userId)
-	const t = await getTranslations('member-detailed')
 
 	if (!member) return notFound()
+
+	const t = await getTranslations('member-detailed')
 
 	return (
 		<>
@@ -22,20 +25,11 @@ const GalleryPage = async ({ params: { userId } }: MemberDetailedPageProps) => {
 			</CardHeader>
 			<Divider />
 			<CardBody>
-				<div className='grid grid-cols-5 gap-3'>
-					{photos &&
-						photos.map((photo) => (
-							<div key={photo.id}>
-								<Image
-									width={300}
-									height={300}
-									src={photo.url}
-									alt={t('photos-alt')}
-									className='object-cover aspect-square'
-								/>
-							</div>
-						))}
-				</div>
+				<MembersPhotos
+					alt={'photos-alt'}
+					photos={photos}
+					noPhotoMsg={t('no-photos', { name: member.name })}
+				/>
 			</CardBody>
 		</>
 	)

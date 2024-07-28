@@ -1,6 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css'
 
 import { NextUIProvider } from '@nextui-org/react'
+import { SessionProvider } from 'next-auth/react'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { ReactNode } from 'react'

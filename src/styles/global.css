@@ -4,7 +4,7 @@
 
 @layer components {
 	.main-gradient {
-		@apply bg-gradient-to-r from-pink-500 to-pink-950;
+		@apply bg-gradient-to-r from-pink-500 to-pink-950 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:opacity-50 disabled:hover:cursor-not-allowed;
 	}
 
 	.light-gradient {

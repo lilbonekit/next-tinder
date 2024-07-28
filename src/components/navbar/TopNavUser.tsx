@@ -15,6 +15,8 @@ import { Session } from 'next-auth'
 import { useTranslations } from 'next-intl'
 import { RiEditCircleLine, RiLogoutCircleLine } from 'react-icons/ri'
 
+import { transformImageUrl } from '@/lib/util'
+
 type TopNavUserProps = {
 	user: Session['user']
 }
@@ -23,6 +25,7 @@ const TopNavUser = ({ user }: TopNavUserProps) => {
 	const t = useTranslations('top-nav-user')
 	const router = useRouter()
 
+	// TODO: Add useTransition logic
 	const handleLogOut = async () => {
 		await signOutUser()
 		router.push('/login')
@@ -40,7 +43,7 @@ const TopNavUser = ({ user }: TopNavUserProps) => {
 					color='default'
 					size='md'
 					name={user?.name || t('user-avatar')}
-					{...(user?.image ? { src: user.image } : {})}
+					{...(user?.image ? { src: transformImageUrl(user.image) } : {})}
 				/>
 			</DropdownTrigger>
 			<DropdownMenu variant='flat' aria-label={t('aria-label')}>
@@ -54,7 +57,7 @@ const TopNavUser = ({ user }: TopNavUserProps) => {
 							name={user?.name}
 							description={user?.email}
 							avatarProps={{
-								...(user?.image ? { src: user?.image } : {}),
+								...(user?.image ? { src: transformImageUrl(user.image) } : {}),
 								showFallback: true,
 								className: 'transition-transform light-gradient',
 								classNames: { name: 'font-semibold text-main-gradient' },

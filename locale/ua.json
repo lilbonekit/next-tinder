@@ -67,6 +67,7 @@
 		"title": "Профіль",
 		"photos": "Галерея",
 		"photos-alt": "Зображення користувача",
+		"no-photos": "{name} ще не додав(ла) жодного фото",
 		"chat": "Чат з користувачем {name}"
 	},
 	"loading": {
@@ -91,5 +92,37 @@
 		"mutual-lbl": "Взаємні",
 		"aria-label": "Вподобайки",
 		"no-members": "Немає користувачів за цим фільтром"
+	},
+	"member": {
+		"edit-profile": "Редагувати профіль",
+		"update-photos": "Оновити фотографії"
+	},
+	"member-edit": {
+		"title": "Редагувати профіль"
+	},
+	"edit-form": {
+		"name-lbl": "Ім'я",
+		"invalid-field": "Невірне поле",
+		"description-lbl": "Опис",
+		"country-lbl": "Країна",
+		"city-lbl": "Місто",
+		"name-required": "Ім'я є обов'язковим",
+		"name-length": "Довжина логіну повинна бути більше 3 символів",
+		"description-required": "Опис є обов'язковим",
+		"city-required": "Місто є обов'язковим",
+		"country-required": "Країна є обов'язковою",
+		"submit-lbl": "Підтвердити зміни",
+		"profile-updated": "Профіль успішно оновлено",
+		"invalid-data": "Неправильно заповнені поля",
+		"something-wrong": "Щось пішло не так!"
+	},
+	"photos-page": {
+		"title": "Моя галерея",
+		"photos-alt":"Зображення користувача",
+		"no-photos": "Ви ще не додали жодного фото"
+	},
+	"image-upload-button": {
+		"text": "Завантажити фото",
+		"problem-adding-image": "Не вдалося завантажити фото"
 	}
 }

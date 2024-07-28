@@ -54,3 +54,16 @@ export async function getMemberPhotosByUserId(userId: string) {
 		throw new Error('failed-to-load-photos')
 	}
 }
+
+export async function getMemberPhotoByPublicId(publicId: string) {
+	try {
+		const photo = await prisma.photo.findUnique({
+			where: { publicId },
+		})
+		if (!photo) throw new Error('no-photo')
+		return photo
+	} catch (error) {
+		console.error(error)
+		throw error
+	}
+}

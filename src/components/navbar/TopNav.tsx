@@ -1,4 +1,5 @@
 import { Navbar, NavbarBrand, NavbarContent } from '@nextui-org/react'
+import { getUserInfoForNav } from 'app/actions/userActions'
 import { getTranslations } from 'next-intl/server'
 
 import { auth } from '@/auth'
@@ -8,10 +9,10 @@ import TopNavLocale from '@/components/navbar/TopNavLocale'
 import TopNavLogo from '@/components/navbar/TopNavLogo'
 
 import TopNavUser from './TopNavUser'
-
 const TopNav = async () => {
 	const t = await getTranslations('top-nav')
 	const session = await auth()
+	const userInfo = session?.user && (await getUserInfoForNav())
 
 	const navItems = [
 		{
@@ -45,15 +46,15 @@ const TopNav = async () => {
 				<TopNavLogo />
 			</NavbarBrand>
 			<NavbarContent justify='center'>
-				{session?.user &&
+				{userInfo &&
 					navItems.map(({ label, href }) => (
 						<TopNavLink key={label} label={label} href={href} />
 					))}
 			</NavbarContent>
 			<NavbarContent justify='end'>
 				<TopNavLocale />
-				{session?.user ? (
-					<TopNavUser user={session.user} />
+				{userInfo ? (
+					<TopNavUser user={userInfo} />
 				) : (
 					navItemsButton.map(({ href, label }) => (
 						<TopNavLinkAuth href={href} label={label} key={label} />
