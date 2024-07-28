@@ -35,12 +35,14 @@ const MemberLayout = async ({ children }: MemberLayoutProps) => {
 	]
 
 	return (
-		<div className='grid grid-cols-12 gap-5 h-[80vh]'>
-			<div className='col-span-3'>
+		<div className='grid grid-cols-12 gap-1 lg:gap-5 lg:h-[80vh]'>
+			<div className='col-span-12 lg:col-span-3'>
 				<MembersSidebar member={member} navLinks={navLinks} />
 			</div>
-			<div className='col-span-9'>
-				<Card className='w-full mt-10 h-[80vh]'>{children}</Card>
+			<div className='col-span-12 lg:col-span-9'>
+				<Card className='w-full my-5 lg:my-0 lg:mt-10 lg:h-[80vh] h-[400px] overflow-auto'>
+					{children}
+				</Card>
 			</div>
 		</div>
 	)

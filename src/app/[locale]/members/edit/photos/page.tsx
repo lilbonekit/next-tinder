@@ -19,10 +19,12 @@ const PhotosPage = async () => {
 	return (
 		<>
 			<CardHeader className='justify-center'>
-				<h1 className='text-2xl font-light text-pink-500'>{t('title')}</h1>
+				<h1 className='text-xl lg:text-2xl font-light text-pink-500'>
+					{t('title')}
+				</h1>
 			</CardHeader>
 			<Divider />
-			<CardBody>
+			<CardBody className='py-5 lg:py-0'>
 				<MembersPhotos
 					editing
 					alt={t('photos-alt')}

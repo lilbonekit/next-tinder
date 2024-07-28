@@ -20,7 +20,7 @@ export const MembersSidebarLink = ({
 		<Link
 			href={href}
 			key={name}
-			className={`block font-light rounded-large py-3 px-5 hover:bg-default/40 hover:transition-colors ${
+			className={`block text-small lg:text-base font-light rounded-large p-2 lg:py-3 lg:px-5 hover:bg-default/40 hover:transition-colors ${
 				pathname === href
 					? 'text-pink-500 hover:bg-pink-100'
 					: 'text-neutral-800'

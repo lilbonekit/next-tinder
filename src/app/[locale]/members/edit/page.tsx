@@ -16,11 +16,11 @@ const MemberEditPage = async () => {
 	const t = await getTranslations('member-edit')
 	return (
 		<>
-			<CardHeader className='text-2xl font-light text-pink-500 justify-center'>
+			<CardHeader className='text-xl lg:text-2xl font-light text-pink-500 justify-center'>
 				{t('title')}
 			</CardHeader>
 			<Divider />
-			<CardBody className='flex flex-col space-y-2 m-auto w-3/6 items-center justify-center'>
+			<CardBody className='flex flex-col space-y-2 m-auto items-center lg:justify-center'>
 				<UploadAvatarButton member={member} />
 				<EditForm member={member} />
 			</CardBody>

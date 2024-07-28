@@ -61,7 +61,10 @@ export const EditForm = ({ member }: EditFormProps) => {
 	}, [member, reset])
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} className='mb-32'>
+		<form
+			onSubmit={handleSubmit(onSubmit)}
+			className='lg:pb-20 lg:w-3/6 w-full'
+		>
 			<Input
 				{...register('name')}
 				size='md'

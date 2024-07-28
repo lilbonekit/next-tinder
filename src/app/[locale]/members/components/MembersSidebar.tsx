@@ -20,12 +20,13 @@ export const MembersSidebar = ({ member, navLinks }: MembersSidebarProps) => {
 	const t = useTranslations('members-sidebar')
 
 	return (
-		<Card className='w-full mt-10 items-center h-[80vh]'>
+		<Card className='w-full mt-10 items-center lg:h-[80vh]'>
 			<div className='rounded-full mt-6 overflow-hidden'>
 				<Image
 					isBlurred
-					height={200}
-					width={200}
+					height={170}
+					width={170}
+					sizes='(max-width: 1000px) 100px, 200px'
 					src={
 						transformImageUrl(member.image as string | undefined) ||
 						'/images/user.png'
@@ -36,10 +37,10 @@ export const MembersSidebar = ({ member, navLinks }: MembersSidebarProps) => {
 			</div>
 			<CardBody>
 				<div className='flex flex-col items-center gap-1'>
-					<div className='text-2xl text-center font-light'>
+					<div className='text-xl lg:text-2xl text-center font-light'>
 						{member.name}, {calculateAge(member.dateOfBirth)}
 					</div>
-					<div className='text-sm text-neutral-500 text-center'>
+					<div className='text-xs lg:text-sm text-neutral-500 text-center'>
 						{member.city}, {member.country}
 					</div>
 				</div>
