@@ -43,7 +43,7 @@ export const UploadAvatarButton = ({ member }: UploadAvatarButtonProps) => {
 			className='relative'
 		>
 			<Avatar
-				className='w-36 h-36 mb-5'
+				className='w-36 h-36 lg:mb-5'
 				src={
 					transformImageUrl(member.image as string | undefined) ||
 					'/images/user.png'
