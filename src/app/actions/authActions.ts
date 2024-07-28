@@ -2,7 +2,6 @@
 
 import { User } from '@prisma/client'
 import bcrypt from 'bcryptjs'
-import { redirect } from 'navigation'
 import { AuthError, CredentialsSignin } from 'next-auth'
 import { ActionResult } from 'types'
 

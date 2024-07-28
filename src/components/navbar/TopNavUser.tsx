@@ -13,7 +13,6 @@ import { signOutUser } from 'app/actions/authActions'
 import { Link, useRouter } from 'navigation'
 import { Session } from 'next-auth'
 import { useTranslations } from 'next-intl'
-import { useTransition } from 'react'
 import { RiEditCircleLine, RiLogoutCircleLine } from 'react-icons/ri'
 
 import { transformImageUrl } from '@/lib/util'
