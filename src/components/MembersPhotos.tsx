@@ -59,7 +59,7 @@ export const MembersPhotos = ({
 				<ScrollShadow
 					hideScrollBar
 					size={40}
-					className='flex gap-3 flex-wrap items-center h-max'
+					className='flex gap-3 flex-wrap items-center h-max lg:p-2'
 				>
 					{photos.map((photo) => (
 						<div key={photo.id} className='relative'>

@@ -1,4 +1,4 @@
-import { CardBody, CardHeader, Divider, Image } from '@nextui-org/react'
+import { CardBody, CardHeader, Divider } from '@nextui-org/react'
 import {
 	getMemberByUserId,
 	getMemberPhotosByUserId,
@@ -20,7 +20,7 @@ const GalleryPage = async ({ params: { userId } }: MemberDetailedPageProps) => {
 
 	return (
 		<>
-			<CardHeader className='text-2xl font-light text-pink-500 justify-center'>
+			<CardHeader className='text-xl lg:text-2xl font-light text-pink-500 justify-center'>
 				{t('photos', { name: member.name })}
 			</CardHeader>
 			<Divider />

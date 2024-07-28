@@ -72,7 +72,6 @@ export async function loginUser(
 
 export async function signOutUser() {
 	await signOut()
-	redirect('/login')
 }
 
 export async function getUserByEmail(email: string) {

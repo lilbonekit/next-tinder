@@ -13,7 +13,7 @@ const ChatPage = async ({ params: { userId } }: MemberDetailedPageProps) => {
 
 	return (
 		<>
-			<CardHeader className='text-2xl font-light text-pink-500 justify-center'>
+			<CardHeader className='text-xl lg:text-2xl font-light text-pink-500 justify-center'>
 				{t('chat', { name: member.name })}
 			</CardHeader>
 			<Divider />

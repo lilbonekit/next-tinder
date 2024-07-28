@@ -9,6 +9,7 @@ import TopNavLocale from '@/components/navbar/TopNavLocale'
 import TopNavLogo from '@/components/navbar/TopNavLogo'
 
 import TopNavUser from './TopNavUser'
+
 const TopNav = async () => {
 	const t = await getTranslations('top-nav')
 	const session = await auth()

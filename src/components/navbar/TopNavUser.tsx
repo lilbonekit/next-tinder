@@ -13,6 +13,7 @@ import { signOutUser } from 'app/actions/authActions'
 import { Link, useRouter } from 'navigation'
 import { Session } from 'next-auth'
 import { useTranslations } from 'next-intl'
+import { useTransition } from 'react'
 import { RiEditCircleLine, RiLogoutCircleLine } from 'react-icons/ri'
 
 import { transformImageUrl } from '@/lib/util'
@@ -25,11 +26,10 @@ const TopNavUser = ({ user }: TopNavUserProps) => {
 	const t = useTranslations('top-nav-user')
 	const router = useRouter()
 
-	// TODO: Add useTransition logic
 	const handleLogOut = async () => {
 		await signOutUser()
-		router.push('/login')
 		router.refresh()
+		router.push('/login')
 	}
 
 	return (
