@@ -1,7 +1,8 @@
-import { CardBody, CardHeader, Divider } from '@nextui-org/react'
 import { getMemberByUserId } from 'app/actions/membersActions'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
+
+import { CardInnerWrapper } from '@/components/CardInnerWrapper'
 
 export interface MemberDetailedPageProps {
 	params: {
@@ -18,15 +19,7 @@ const MemberDetailedPage = async ({
 
 	const t = await getTranslations('member-detailed')
 
-	return (
-		<>
-			<CardHeader className='text-xl lg:text-2xl font-light text-pink-500 justify-center'>
-				{t('title')}
-			</CardHeader>
-			<Divider />
-			<CardBody>{member.description}</CardBody>
-		</>
-	)
+	return <CardInnerWrapper header={t('title')} body={member.description} />
 }
 
 export default MemberDetailedPage

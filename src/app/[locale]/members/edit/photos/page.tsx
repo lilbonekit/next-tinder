@@ -1,4 +1,4 @@
-import { CardBody, CardHeader, Divider } from '@nextui-org/react'
+import { Divider } from '@nextui-org/react'
 import { getAuthUserId } from 'app/actions/authActions'
 import {
 	getMemberByUserId,
@@ -6,6 +6,7 @@ import {
 } from 'app/actions/membersActions'
 import { getTranslations } from 'next-intl/server'
 
+import { CardInnerWrapper } from '@/components/CardInnerWrapper'
 import { MembersPhotos } from '@/components/MembersPhotos'
 
 import { ImageUploadButtonClient } from './components/ImageUploadButtonClient'
@@ -17,12 +18,9 @@ const PhotosPage = async () => {
 	const t = await getTranslations('photos-page')
 
 	return (
-		<>
-			<CardHeader className='text-xl lg:text-2xl font-light text-pink-500 justify-center'>
-				{t('title')}
-			</CardHeader>
-			<Divider />
-			<CardBody>
+		<CardInnerWrapper
+			header={t('title')}
+			body={
 				<MembersPhotos
 					editing
 					alt={t('photos-alt')}
@@ -30,12 +28,16 @@ const PhotosPage = async () => {
 					noPhotoMsg={t('no-photos')}
 					mainImageUrl={member?.image}
 				/>
-			</CardBody>
-			<Divider />
-			<div className='flex justify-center py-5'>
-				<ImageUploadButtonClient />
-			</div>
-		</>
+			}
+			footer={
+				<>
+					<Divider />
+					<div className='flex justify-center py-5'>
+						<ImageUploadButtonClient />
+					</div>
+				</>
+			}
+		/>
 	)
 }
 

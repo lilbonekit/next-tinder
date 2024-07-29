@@ -1,7 +1,8 @@
-import { CardBody, CardHeader, Divider } from '@nextui-org/react'
 import { getMemberByUserId } from 'app/actions/membersActions'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
+
+import { CardInnerWrapper } from '@/components/CardInnerWrapper'
 
 import { MemberDetailedPageProps } from '../page'
 
@@ -12,13 +13,7 @@ const ChatPage = async ({ params: { userId } }: MemberDetailedPageProps) => {
 	if (!member) return notFound()
 
 	return (
-		<>
-			<CardHeader className='text-xl lg:text-2xl font-light text-pink-500 justify-center'>
-				{t('chat', { name: member.name })}
-			</CardHeader>
-			<Divider />
-			<CardBody>Messages</CardBody>
-		</>
+		<CardInnerWrapper header={t('chat', { name: member.name })} body='msagge' />
 	)
 }
 

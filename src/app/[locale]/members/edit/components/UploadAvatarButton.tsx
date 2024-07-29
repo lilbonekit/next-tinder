@@ -40,7 +40,7 @@ export const UploadAvatarButton = ({ member }: UploadAvatarButtonProps) => {
 			onSuccess={onAddImage}
 			signatureEndpoint={`/${locale}/api/sign-image`}
 			uploadPreset='nm-demo'
-			className='relative'
+			className='relative h-[144px]'
 		>
 			<Avatar
 				className='w-36 h-36 lg:mb-5'
@@ -51,7 +51,7 @@ export const UploadAvatarButton = ({ member }: UploadAvatarButtonProps) => {
 			/>
 			<IoCameraOutline
 				size={40}
-				className='absolute top-[45%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-white/80'
+				className='absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-white/80'
 			/>
 		</CldUploadButton>
 	)

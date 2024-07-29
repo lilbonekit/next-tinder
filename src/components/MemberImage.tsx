@@ -16,8 +16,8 @@ export const MemberImage = ({ photo, alt }: MemberImageProps) => {
 				<CldImage
 					alt={alt}
 					src={photo.publicId}
-					width={175}
-					height={175}
+					width={300}
+					height={300}
 					crop='fill'
 					gravity='faces'
 					className='rounded-2xl aspect-square object-cover'
@@ -25,8 +25,8 @@ export const MemberImage = ({ photo, alt }: MemberImageProps) => {
 				/>
 			) : (
 				<Image
-					width={150}
-					height={150}
+					width={300}
+					height={300}
 					src={photo?.url || '/images/user.png'}
 					alt={alt}
 					className='object-cover aspect-square'
