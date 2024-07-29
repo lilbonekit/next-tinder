@@ -11,16 +11,16 @@ interface MemberImageProps {
 
 export const MemberImage = ({ photo, alt }: MemberImageProps) => {
 	return (
-		<div>
+		<>
 			{photo?.publicId ? (
 				<CldImage
 					alt={alt}
 					src={photo.publicId}
-					width={150}
-					height={150}
+					width={175}
+					height={175}
 					crop='fill'
 					gravity='faces'
-					className='rounded-2xl'
+					className='rounded-2xl aspect-square object-cover'
 					priority
 				/>
 			) : (
@@ -32,6 +32,6 @@ export const MemberImage = ({ photo, alt }: MemberImageProps) => {
 					className='object-cover aspect-square'
 				/>
 			)}
-		</div>
+		</>
 	)
 }
