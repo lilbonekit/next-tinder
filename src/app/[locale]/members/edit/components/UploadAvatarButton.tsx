@@ -44,10 +44,7 @@ export const UploadAvatarButton = ({ member }: UploadAvatarButtonProps) => {
 		>
 			<Avatar
 				className='w-36 h-36 lg:mb-5'
-				src={
-					transformImageUrl(member.image as string | undefined) ||
-					'/images/user.png'
-				}
+				src={transformImageUrl(member.image) || '/images/user.png'}
 			/>
 			<IoCameraOutline
 				size={40}

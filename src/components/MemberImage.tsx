@@ -26,7 +26,6 @@ export const MemberImage = ({ photo, alt }: MemberImageProps) => {
 			) : (
 				<Image
 					width={300}
-					height={300}
 					src={photo?.url || '/images/user.png'}
 					alt={alt}
 					className='object-cover aspect-square'

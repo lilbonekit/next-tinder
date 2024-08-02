@@ -24,10 +24,7 @@ export const MembersCard = ({ member, likeIds }: MembersCardProps) => {
 				isZoomed
 				alt={member.name}
 				width={300}
-				src={
-					transformImageUrl(member.image as string | undefined) ||
-					'/images/user.png'
-				}
+				src={transformImageUrl(member.image) || '/images/user.png'}
 				className='aspect-square object-cover'
 			/>
 			<div onClick={preventLinkAction}>

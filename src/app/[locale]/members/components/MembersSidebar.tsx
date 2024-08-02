@@ -27,10 +27,7 @@ export const MembersSidebar = ({ member, navLinks }: MembersSidebarProps) => {
 					height={170}
 					width={170}
 					sizes='(max-width: 1000px) 100px, 200px'
-					src={
-						transformImageUrl(member.image as string | undefined) ||
-						'/images/user.png'
-					}
+					src={transformImageUrl(member.image) || '/images/user.png'}
 					alt={t('profile-alt')}
 					className='rounded-full aspect-square object-cover'
 				/>

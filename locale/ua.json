@@ -124,5 +124,26 @@
 	"image-upload-button": {
 		"text": "Завантажити фото",
 		"problem-adding-image": "Не вдалося завантажити фото"
+	},
+	"chat-form": {
+		"text-plh": "Напишіть повідомлення...",
+		"content-required": "Подіомлення не може бути пустим!",
+		"something-wrong": "Щось пішло не так!"
+	},
+	"message-sidebar": {
+		"inbox-lbl": "Вхідні",
+		"outbox-lbl": "Вихідні"
+	},
+	"message-table": {
+		"recipient": "Отримувач",
+		"sender": "Відправник",
+		"message": "Повідомлення",
+		"date-sent": "Дата відправлення",
+		"date-received": "Дата отримання",
+		"no-messages": "Немає повідомлень",
+		"table-with-messages": "Таблиця повідомлень",
+		"actions": "Дії",
+		"user-avatar-alt": "Аватар користувача",
+		"delete-btn": "Видалити"
 	}
 }

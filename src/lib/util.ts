@@ -1,10 +1,12 @@
-import { differenceInYears } from 'date-fns'
+import { differenceInYears, format } from 'date-fns'
 import { FieldError, FieldValues, Path, UseFormSetError } from 'react-hook-form'
 import { ZodIssue } from 'zod'
 
-export const calculateAge = (dateOfBirth: Date) => {
-	return differenceInYears(new Date(), dateOfBirth)
-}
+export const calculateAge = (dateOfBirth: Date) =>
+	differenceInYears(new Date(), dateOfBirth)
+
+export const formatShortDateTime = (date: Date) =>
+	format(date, 'dd.MM.yyyy h:mm:a')
 
 export const getErrorMessage = (fieldError?: FieldError) => {
 	if (!fieldError) return 'invalid-field'
@@ -26,7 +28,7 @@ export const handleFormServerErrors = <TFieldValues extends FieldValues>(
 	setError('root.serverError', { message: errorResponse.error })
 }
 
-export const transformImageUrl = (imageUrl?: string) => {
+export const transformImageUrl = (imageUrl?: string | null) => {
 	if (!imageUrl) return
 	if (!imageUrl.includes('cloudinary')) return imageUrl
 
@@ -35,4 +37,12 @@ export const transformImageUrl = (imageUrl?: string) => {
 	return `${imageUrl.slice(0, uploadIndex)}${
 		process.env.NEXT_PUBLIC_IMAGE_TRANSFORMATION
 	}${imageUrl.slice(uploadIndex)}`
+}
+
+export function truncateString(text?: string | null, length = 50) {
+	if (!text) return null
+	if (text.length <= length) {
+		return text
+	}
+	return text.slice(0, length) + '...'
 }

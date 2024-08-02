@@ -124,5 +124,26 @@
 	"image-upload-button": {
 		"text": "Upload new image",
 		"problem-adding-image": "Problem adding image"
+	},
+	"chat-form": {
+		"text-plh": "Type a message",
+		"content-required": "Content is required",
+		"something-wrong": "Something went wrong!"
+	},
+	"message-sidebar": {
+		"inbox-lbl": "Inbox",
+		"outbox-lbl": "Outbox"
+	},
+	"message-table": {
+		"recipient": "Recipient",
+		"sender": "Sender",
+		"message": "Message",
+		"date-sent": "Date sent",
+		"date-received": "Date received",
+		"no-messages": "No messages",
+		"table-with-messages": "Table with messages",
+		"actions": "Actions",
+		"user-avatar-alt": "User's image",
+		"delete-btn": "Delete"
 	}
 }
