@@ -20,3 +20,15 @@ export enum MESSAGE_DELETE_KEYS {
 	senderDeleted = 'senderDeleted',
 	recipientDeleted = 'recipientDeleted',
 }
+
+export enum MESSAGE_PUSHER_EVENTS {
+	messageNew = 'message:new',
+	messagesRead = 'messages:read',
+}
+
+export enum PRESENCE_PUSHER {
+	presenceNm = 'presence-nm',
+	subscriptionSucceeded = 'pusher:subscription_succeeded',
+	memberAdded = 'pusher:member_added',
+	memberRemoved = 'pusher:member_removed',
+}

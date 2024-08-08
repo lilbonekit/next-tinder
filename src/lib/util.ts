@@ -1,4 +1,5 @@
-import { differenceInYears, format } from 'date-fns'
+import { differenceInYears, format, formatDistanceToNow, parse } from 'date-fns'
+import { uk } from 'date-fns/locale'
 import { FieldError, FieldValues, Path, UseFormSetError } from 'react-hook-form'
 import { ZodIssue } from 'zod'
 
@@ -7,6 +8,12 @@ export const calculateAge = (dateOfBirth: Date) =>
 
 export const formatShortDateTime = (date: Date) =>
 	format(date, 'dd.MM.yyyy h:mm:a')
+
+export const timeAgo = (date: string, isUkrainian = false) => {
+	const parsedDate = parse(date, 'dd.MM.yyyy h:mm:a', new Date())
+
+	return formatDistanceToNow(parsedDate, isUkrainian ? { locale: uk } : {})
+}
 
 export const getErrorMessage = (fieldError?: FieldError) => {
 	if (!fieldError) return 'invalid-field'
@@ -44,5 +51,9 @@ export function truncateString(text?: string | null, length = 50) {
 	if (text.length <= length) {
 		return text
 	}
-	return text.slice(0, length) + '...'
+	return text.slice(0, length).trim() + '...'
+}
+
+export function createChatId(a: string, b: string) {
+	return a > b ? `${b}-${a}` : `${a}-${b}`
 }

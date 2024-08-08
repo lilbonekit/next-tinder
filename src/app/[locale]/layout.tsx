@@ -1,10 +1,13 @@
 import '@/styles/global.css'
 
 import type { Metadata } from 'next'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
 import { ReactNode } from 'react'
 
+import { auth } from '@/auth'
 import TopNav from '@/components/navbar/TopNav'
-import Providers from '@/components/Providers'
+import ProvidersClient from '@/components/Providers'
 
 // TODO: Change with i18n-intl before deploy
 export const metadata: Metadata = {
@@ -17,17 +20,23 @@ interface RootLayoutProps {
 	params: { locale: string }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 	params: { locale },
 }: Readonly<RootLayoutProps>) {
+	const messages = await getMessages()
+	const session = await auth()
+	const userId = session?.user?.id || null
+
 	return (
 		<html lang={locale}>
 			<body>
-				<Providers>
-					<TopNav />
-					<main className='container mx-auto px-3'>{children}</main>
-				</Providers>
+				<NextIntlClientProvider messages={messages}>
+					<ProvidersClient userId={userId}>
+						<TopNav />
+						<main className='container mx-auto px-3'>{children}</main>
+					</ProvidersClient>
+				</NextIntlClientProvider>
 			</body>
 		</html>
 	)

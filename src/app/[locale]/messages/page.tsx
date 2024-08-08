@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import { getMessageByContainer } from 'app/actions/messageAction'
 import { MESSAGE_SIDEBAR_KEYS } from 'types/enums'
 
@@ -16,7 +19,7 @@ const MessagesPage = async ({
 				<MessageSidebar />
 			</div>
 			<div className='col-span-10'>
-				<MessageTable messages={messages} />
+				<MessageTable initialMessages={messages} />
 			</div>
 		</div>
 	)

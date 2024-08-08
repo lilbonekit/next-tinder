@@ -2,6 +2,7 @@
 
 import { Chip } from '@nextui-org/react'
 import clsx from 'clsx'
+import useMessageStore from 'hooks/useMessageStore'
 import { usePathname, useRouter } from 'navigation'
 import { useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
@@ -17,13 +18,15 @@ export const MessageSidebar = () => {
 		searchParams.get('container') || MESSAGE_SIDEBAR_KEYS.inbox
 	)
 	const t = useTranslations('message-sidebar')
-
+	const { unreadCount } = useMessageStore((state) => ({
+		unreadCount: state.unreadCount,
+	}))
 	const items = [
 		{
 			key: MESSAGE_SIDEBAR_KEYS.inbox,
 			label: t('inbox-lbl'),
 			icon: PiArrowCircleLeft,
-			chip: true,
+			chip: !!unreadCount,
 		},
 		{
 			key: MESSAGE_SIDEBAR_KEYS.outbox,
@@ -63,7 +66,7 @@ export const MessageSidebar = () => {
 					/>
 					<div className='flex justify-between flex-grow'>
 						<span>{label}</span>
-						{chip && <Chip color='danger'>5</Chip>}
+						{chip && <Chip color='danger'>{unreadCount}</Chip>}
 					</div>
 				</div>
 			))}

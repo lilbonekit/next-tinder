@@ -5,7 +5,7 @@
 	},
 	"locale-btn": {
 		"en": "English",
-		"ua": "Ukrainian",
+		"ua": "Українська",
 		"aria-label": "Locale toggler"
 	},
 	"top-nav": {
@@ -68,7 +68,8 @@
 		"photos": "Gallery",
 		"photos-alt": "The image of member",
 		"no-photos": "{name} hasn't added any photos yet",
-		"chat": "Conversation with {name}"
+		"chat": "Conversation with {name}",
+		"no-message": "No messages"
 	},
 	"loading": {
 		"label": "Loading..."
@@ -145,5 +146,12 @@
 		"actions": "Actions",
 		"user-avatar-alt": "User's image",
 		"delete-btn": "Delete"
+	},
+	"presence-dot": {
+		"online": "Online"
+	},
+	"notifications": {
+		"new-message": "New message from {name}",
+		"click-to-view": "Click to view"
 	}
 }

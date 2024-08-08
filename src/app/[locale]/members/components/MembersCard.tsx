@@ -2,6 +2,7 @@ import { Card, CardFooter, Image } from '@nextui-org/react'
 import { Member } from '@prisma/client'
 
 import { LikeButton } from '@/components/LikeButton'
+import { PresenceDot } from '@/components/PresenceDot'
 import { calculateAge, transformImageUrl } from '@/lib/util'
 
 export interface MembersCardProps {
@@ -34,9 +35,12 @@ export const MembersCard = ({ member, likeIds }: MembersCardProps) => {
 			</div>
 			<CardFooter className='flex justify-start bg-black overflow-hidden absolute bottom-0 z-10 bg-dark-gradient'>
 				<div className='flex flex-col text-white'>
-					<span className='font-semibold text-left'>
-						{member.name}, {calculateAge(member.dateOfBirth)}
-					</span>
+					<div className='flex items-center'>
+						<span className='font-semibold text-left'>
+							{member.name}, {calculateAge(member.dateOfBirth)}
+						</span>
+						<PresenceDot member={member} />
+					</div>
 					<span className='text-sm text-left'>{member.city}</span>
 				</div>
 			</CardFooter>

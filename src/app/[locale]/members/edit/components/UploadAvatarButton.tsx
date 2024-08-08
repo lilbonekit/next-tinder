@@ -6,7 +6,7 @@ import { getMemberPhotoByPublicId } from 'app/actions/membersActions'
 import { addImage, setMainImage } from 'app/actions/userActions'
 import { useRouter } from 'navigation'
 import { CldUploadButton, CloudinaryUploadWidgetResults } from 'next-cloudinary'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { IoCameraOutline } from 'react-icons/io5'
 import { toast } from 'react-toastify'
 
@@ -17,7 +17,6 @@ interface UploadAvatarButtonProps {
 }
 
 export const UploadAvatarButton = ({ member }: UploadAvatarButtonProps) => {
-	const locale = useLocale()
 	const router = useRouter()
 	const t = useTranslations('image-upload-button')
 
@@ -38,7 +37,7 @@ export const UploadAvatarButton = ({ member }: UploadAvatarButtonProps) => {
 		<CldUploadButton
 			options={{ maxFiles: 1 }}
 			onSuccess={onAddImage}
-			signatureEndpoint={`/${locale}/api/sign-image`}
+			signatureEndpoint='/api/sign-image'
 			uploadPreset='nm-demo'
 			className='relative h-[144px]'
 		>

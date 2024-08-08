@@ -4,7 +4,7 @@
 		"tinder": "Tinder"
 	},
 	"locale-btn": {
-		"en": "Англійська",
+		"en": "English",
 		"ua": "Українська",
 		"aria-label": "Перемикач мови"
 	},
@@ -68,7 +68,8 @@
 		"photos": "Галерея",
 		"photos-alt": "Зображення користувача",
 		"no-photos": "{name} ще не додав(ла) жодного фото",
-		"chat": "Чат з користувачем {name}"
+		"chat": "Чат з користувачем {name}",
+		"no-message": "Немає повідомлень"
 	},
 	"loading": {
 		"label": "Завантаження..."
@@ -145,5 +146,12 @@
 		"actions": "Дії",
 		"user-avatar-alt": "Аватар користувача",
 		"delete-btn": "Видалити"
+	},
+	"presence-dot": {
+		"online": "В мережі"
+	},
+	"notifications": {
+		"new-message": "Нове повідомлення від користувача {name}",
+		"click-to-view": "Натисність щоб подивитися"
 	}
 }

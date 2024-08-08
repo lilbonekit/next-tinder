@@ -14,7 +14,6 @@ const TopNav = async () => {
 	const t = await getTranslations('top-nav')
 	const session = await auth()
 	const userInfo = session?.user && (await getUserInfoForNav())
-
 	const navItems = [
 		{
 			href: `/members`,

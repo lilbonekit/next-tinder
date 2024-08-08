@@ -2,6 +2,7 @@ import { Card, CardBody, CardFooter, Divider, Image } from '@nextui-org/react'
 import { Member } from '@prisma/client'
 import { useTranslations } from 'next-intl'
 
+import { PresenceDot } from '@/components/PresenceDot'
 import { calculateAge, transformImageUrl } from '@/lib/util'
 
 import { MembersSidebarBack } from './MembersSidebarBack'
@@ -33,9 +34,12 @@ export const MembersSidebar = ({ member, navLinks }: MembersSidebarProps) => {
 				/>
 			</div>
 			<CardBody>
-				<div className='flex flex-col items-center gap-1'>
-					<div className='text-xl lg:text-2xl text-center font-light'>
-						{member.name}, {calculateAge(member.dateOfBirth)}
+				<div className='flex flex-col items-center gap-2'>
+					<div className='text-xl lg:text-2xl text-center font-light flex gap-1'>
+						<span>
+							{member.name}, {calculateAge(member.dateOfBirth)}
+						</span>
+						<PresenceDot member={member} size={23} />
 					</div>
 					<div className='text-xs lg:text-sm text-neutral-500 text-center'>
 						{member.city}, {member.country}
