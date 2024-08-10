@@ -1,35 +1,58 @@
 import { Avatar } from '@nextui-org/react'
+import { Member } from '@prisma/client'
 import { Link } from 'navigation'
 import { useTranslations } from 'next-intl'
 import { toast } from 'react-toastify'
 import { MessageDto } from 'types'
+import { TOAST_TYPES } from 'types/enums'
 
 import { transformImageUrl, truncateString } from '@/lib/util'
 
-interface NewMessageToastProps {
+interface MessageToastProps {
+	type: TOAST_TYPES.newMessage
 	message: MessageDto
 }
 
-export const NewMessageToast = ({ message }: NewMessageToastProps) => {
+interface LikeToastProps {
+	type: TOAST_TYPES.like
+	member: Member
+}
+
+export const ActionToast = (props: MessageToastProps | LikeToastProps) => {
+	const info =
+		props.type === TOAST_TYPES.like
+			? {
+					href: `/members/${props.member.userId}/chat`,
+					image: props.member.image,
+					name: props.member.name,
+			  }
+			: {
+					href: `/members/${props.message.senderId}/chat`,
+					image: props.message.senderImage,
+					name: props.message.senderName,
+			  }
+
 	const t = useTranslations('notifications')
 	return (
-		<Link
-			href={`/members/${message.senderId}/chat`}
-			className='flex items-center z-50'
-		>
+		<Link href={info.href} className='flex items-center z-50'>
 			<div className='mr-2'>
 				<Avatar
-					src={transformImageUrl(message.senderImage) || '/images/user.png'}
-					alt={message.senderName}
+					src={transformImageUrl(info.image) || '/images/user.png'}
+					alt={info.name}
 					size='lg'
 				/>
 			</div>
 			<div className='flex flex-grow flex-col justify-center'>
 				<div className='font-semibold text-[14px]'>
 					{truncateString(
-						t('new-message', {
-							name: message.senderName,
-						}),
+						t(
+							props.type === TOAST_TYPES.newMessage
+								? 'new-message'
+								: 'new-like',
+							{
+								name: info.name,
+							}
+						),
 						22
 					)}
 				</div>
@@ -39,6 +62,6 @@ export const NewMessageToast = ({ message }: NewMessageToastProps) => {
 	)
 }
 
-export const newMessageToasts = (message: MessageDto) => {
-	toast(<NewMessageToast message={message} />)
+export const customToast = (props: MessageToastProps | LikeToastProps) => {
+	toast(<ActionToast {...props} />)
 }

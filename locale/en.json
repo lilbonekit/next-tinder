@@ -152,6 +152,7 @@
 	},
 	"notifications": {
 		"new-message": "New message from {name}",
-		"click-to-view": "Click to view"
+		"click-to-view": "Click to view",
+		"new-like": "{name} has liked you!"
 	}
 }

@@ -32,3 +32,12 @@ export enum PRESENCE_PUSHER {
 	memberAdded = 'pusher:member_added',
 	memberRemoved = 'pusher:member_removed',
 }
+
+export enum LIKE_PUSHER_EVENTS {
+	likeNew = 'like:new',
+}
+
+export enum TOAST_TYPES {
+	like = 'like',
+	newMessage = 'newMessage',
+}

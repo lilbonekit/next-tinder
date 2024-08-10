@@ -1,11 +1,17 @@
+import { getMemberByUserId } from 'app/actions/membersActions'
 import { usePathname } from 'navigation'
 import { useSearchParams } from 'next/navigation'
 import { Channel } from 'pusher-js'
 import { useCallback, useEffect, useRef } from 'react'
 import { MessageDto } from 'types'
-import { MESSAGE_PUSHER_EVENTS, MESSAGE_SIDEBAR_KEYS } from 'types/enums'
+import {
+	LIKE_PUSHER_EVENTS,
+	MESSAGE_PUSHER_EVENTS,
+	MESSAGE_SIDEBAR_KEYS,
+	TOAST_TYPES,
+} from 'types/enums'
 
-import { newMessageToasts } from '@/components/NewMessageToast'
+import { customToast } from '@/components/NewMessageToast'
 import { pusherClient } from '@/lib/pusher'
 
 import useMessageStore from './useMessageStore'
@@ -31,12 +37,25 @@ export const useNotificationChannel = (userId?: string | null) => {
 			}
 
 			if (pathname !== `/members/${message.senderId}/chat`) {
-				newMessageToasts(message)
+				customToast({ message, type: TOAST_TYPES.newMessage })
 				updateUnreadCount(1)
 			}
 		},
 		[pathname, searchParams, add, updateUnreadCount]
 	)
+
+	const handleNewLike = useCallback(async (sourceId: string) => {
+		try {
+			const member = await getMemberByUserId(sourceId)
+			if (member) {
+				customToast({ member, type: TOAST_TYPES.like })
+			}
+		} catch (error) {
+			// eslint-disable-next-line no-console
+			console.error('Error fetching member:', error)
+			throw error
+		}
+	}, [])
 
 	useEffect(() => {
 		if (!userId) return
@@ -46,6 +65,8 @@ export const useNotificationChannel = (userId?: string | null) => {
 				MESSAGE_PUSHER_EVENTS.messageNew,
 				handleNewMessage
 			)
+
+			channelRef.current.bind(LIKE_PUSHER_EVENTS.likeNew, handleNewLike)
 		}
 
 		return () => {
@@ -55,8 +76,9 @@ export const useNotificationChannel = (userId?: string | null) => {
 					MESSAGE_PUSHER_EVENTS.messageNew,
 					handleNewMessage
 				)
+				channelRef.current.unbind(LIKE_PUSHER_EVENTS.likeNew, handleNewLike)
 				channelRef.current = null
 			}
 		}
-	}, [userId, handleNewMessage])
+	}, [userId, handleNewMessage, handleNewLike])
 }

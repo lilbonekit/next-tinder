@@ -2,28 +2,39 @@
 'use server'
 
 import { getAuthUserId } from 'app/actions/authActions'
+import { LIKE_PUSHER_EVENTS } from 'types/enums'
 
 import { prisma } from '@/lib/prisma'
+import { pusherServer } from '@/lib/pusher'
 
 export async function toggleLikeMember(targetUserId: string, isLiked: boolean) {
 	try {
 		const userId = await getAuthUserId()
 
-		isLiked
-			? await prisma.like.delete({
-					where: {
-						sourceUserId_targetUserId: {
-							sourceUserId: userId,
-							targetUserId,
-						},
-					},
-			  })
-			: await prisma.like.create({
-					data: {
+		if (isLiked) {
+			await prisma.like.delete({
+				where: {
+					sourceUserId_targetUserId: {
 						sourceUserId: userId,
 						targetUserId,
 					},
-			  })
+				},
+			})
+			return
+		}
+
+		await prisma.like.create({
+			data: {
+				sourceUserId: userId,
+				targetUserId,
+			},
+		})
+
+		await pusherServer.trigger(
+			`private-${targetUserId}`,
+			LIKE_PUSHER_EVENTS.likeNew,
+			userId
+		)
 	} catch (error) {
 		console.error(error)
 		throw error
