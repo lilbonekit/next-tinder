@@ -13,6 +13,7 @@ import {
 
 import { customToast } from '@/components/NewMessageToast'
 import { pusherClient } from '@/lib/pusher'
+import { playNotificationSound } from '@/lib/util'
 
 import useMessageStore from './useMessageStore'
 
@@ -38,6 +39,7 @@ export const useNotificationChannel = (userId?: string | null) => {
 
 			if (pathname !== `/members/${message.senderId}/chat`) {
 				customToast({ message, type: TOAST_TYPES.newMessage })
+				playNotificationSound()
 				updateUnreadCount(1)
 			}
 		},
@@ -48,6 +50,7 @@ export const useNotificationChannel = (userId?: string | null) => {
 		try {
 			const member = await getMemberByUserId(sourceId)
 			if (member) {
+				playNotificationSound()
 				customToast({ member, type: TOAST_TYPES.like })
 			}
 		} catch (error) {

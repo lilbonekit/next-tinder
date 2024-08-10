@@ -57,3 +57,8 @@ export function truncateString(text?: string | null, length = 50) {
 export function createChatId(a: string, b: string) {
 	return a > b ? `${b}-${a}` : `${a}-${b}`
 }
+
+export function playNotificationSound() {
+	const audio = new Audio('/audio/notification.mp3')
+	audio.play()
+}
