@@ -29,18 +29,18 @@ export async function getMembers({
 	const page = parseInt(pageNumber)
 	const limit = parseInt(pageSize)
 	const imageCondition =
-		withPhotoOnly === 'true' ? { image: { not: null } } : {}
+		withPhotoOnly === 'true' ? [{ image: { not: null } }] : []
 
 	const skip = (page - 1) * limit
 
 	try {
 		const count = await prisma.member.count({
 			where: {
-				...imageCondition,
 				AND: [
 					{ dateOfBirth: { gte: minDob } },
 					{ dateOfBirth: { lte: maxDob } },
 					{ gender: { in: selectedGender } },
+					...imageCondition,
 				],
 				NOT: { userId },
 			},
@@ -48,11 +48,11 @@ export async function getMembers({
 
 		const members = await prisma.member.findMany({
 			where: {
-				...imageCondition,
 				AND: [
 					{ dateOfBirth: { gte: minDob } },
 					{ dateOfBirth: { lte: maxDob } },
 					{ gender: { in: selectedGender } },
+					...imageCondition,
 				],
 				NOT: { userId },
 			},
