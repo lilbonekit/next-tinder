@@ -166,7 +166,9 @@
 		"age-range": "Вік",
 		"order-by": "Сортувати за",
 		"order-by-selector": "Сортувальний селектор",
-		"result": "Знайдено:"
+		"result": "Знайдено:",
+		"gender": "Стать:",
+		"with-photos-only": "Тільки з фото"
 	},
 	"pagination": {
 		"result-text": "Показано {start}-{end} з {totalCount}"

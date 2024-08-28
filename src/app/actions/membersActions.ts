@@ -16,6 +16,7 @@ export async function getMembers({
 	orderBy = ORDER_BY_LIST.updated,
 	pageNumber = '1',
 	pageSize = '12',
+	withPhotoOnly = 'false',
 }: GetMemberParams): Promise<PaginatedResponse<Member>> {
 	const userId = await getAuthUserId()
 
@@ -27,12 +28,15 @@ export async function getMembers({
 
 	const page = parseInt(pageNumber)
 	const limit = parseInt(pageSize)
+	const imageCondition =
+		withPhotoOnly === 'true' ? { image: { not: null } } : {}
 
 	const skip = (page - 1) * limit
 
 	try {
 		const count = await prisma.member.count({
 			where: {
+				...imageCondition,
 				AND: [
 					{ dateOfBirth: { gte: minDob } },
 					{ dateOfBirth: { lte: maxDob } },
@@ -44,6 +48,7 @@ export async function getMembers({
 
 		const members = await prisma.member.findMany({
 			where: {
+				...imageCondition,
 				AND: [
 					{ dateOfBirth: { gte: minDob } },
 					{ dateOfBirth: { lte: maxDob } },

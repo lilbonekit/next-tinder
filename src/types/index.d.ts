@@ -39,6 +39,7 @@ type UserFilters = {
 	ageRange: number[]
 	orderBy: string
 	gender: GENDERS[]
+	withPhotoOnly: boolean
 }
 
 type PagingParams = {
@@ -62,4 +63,5 @@ type GetMemberParams = {
 	pageNumber?: string
 	pageSize?: string
 	orderBy?: string
+	withPhotoOnly: string
 }

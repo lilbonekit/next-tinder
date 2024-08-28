@@ -166,7 +166,9 @@
 		"age-range": " Age range",
 		"order-by": "Order by",
 		"order-by-selector": "Order by selector",
-		"result": "Result:"
+		"result": "Result:",
+		"gender": "Gender:",
+		"with-photos-only": "With photos only"
 	},
 	"pagination": {
 		"result-text": "Showing {start}-{end} of {totalCount} results"

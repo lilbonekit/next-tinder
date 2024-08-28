@@ -20,13 +20,13 @@ export const useFilters = () => {
 		setPage: state.setPage,
 	}))
 	const { filters, setFilters } = useFilterStore()
-	const { gender, ageRange, orderBy } = filters
+	const { gender, ageRange, orderBy, withPhotoOnly } = filters
 
 	useEffect(() => {
-		if (gender || ageRange || orderBy) {
+		if (gender || ageRange || orderBy || withPhotoOnly) {
 			setPage(1)
 		}
-	}, [ageRange, gender, orderBy, setPage])
+	}, [ageRange, gender, orderBy, setPage, withPhotoOnly])
 
 	useEffect(() => {
 		startTransition(() => {
@@ -37,10 +37,20 @@ export const useFilters = () => {
 			if (gender) searchParams.set('orderBy', orderBy)
 			if (pageSize) searchParams.set('pageSize', pageSize.toString())
 			if (pageNumber) searchParams.set('pageNumber', pageNumber.toString())
+			searchParams.set('withPhotoOnly', withPhotoOnly.toString())
 
 			router.replace(`${pathname}?${searchParams}`)
 		})
-	}, [ageRange, gender, orderBy, pageNumber, pageSize, pathname, router])
+	}, [
+		ageRange,
+		gender,
+		orderBy,
+		pageNumber,
+		pageSize,
+		pathname,
+		router,
+		withPhotoOnly,
+	])
 
 	const orderByList = [
 		{
@@ -83,12 +93,17 @@ export const useFilters = () => {
 			: setFilters('gender', [...gender, value])
 	}
 
+	const handlePhotoSelect = (value: boolean) => {
+		setFilters('withPhotoOnly', value)
+	}
+
 	return {
 		orderByList,
 		genderList,
 		selectAge: handleAgeSelect,
 		selectGender: handleGenderSelect,
 		selectOrder: handleOrderSelect,
+		selectWithPhotoOnly: handlePhotoSelect,
 		isPending,
 		filters,
 		t,
