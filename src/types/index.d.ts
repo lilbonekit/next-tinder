@@ -1,6 +1,8 @@
 import { Prisma } from '@prisma/client'
 import { ZodIssue } from 'zod'
 
+import { GENDERS } from './enums'
+
 type ActionResult<T> =
 	| { status: 'success'; data: T }
 	| { status: 'error'; error: string | ZodIssue[] }
@@ -31,4 +33,33 @@ type MessageDto = {
 	recipientId?: string
 	recipientName?: string
 	recipientImage?: string | null
+}
+
+type UserFilters = {
+	ageRange: number[]
+	orderBy: string
+	gender: GENDERS[]
+}
+
+type PagingParams = {
+	pageNumber: number
+	pageSize: number
+}
+
+type PagingResult = {
+	totalPages: number
+	totalCount: number
+} & PagingParams
+
+type PaginatedResponse<T> = {
+	items: T[]
+	totalCount: number
+}
+
+type GetMemberParams = {
+	ageRange?: string
+	gender?: string
+	pageNumber?: string
+	pageSize?: string
+	orderBy?: string
 }

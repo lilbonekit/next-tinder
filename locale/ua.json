@@ -55,6 +55,9 @@
 		"something-wrong": "Щось пішло не так!",
 		"user-registered": "Ви успішно зареєструвалися"
 	},
+	"members": {
+		"no-users": "Немає користувачів"
+	},
 	"members-sidebar": {
 	"profile": "Профіль",
 	"photos": "Фото",
@@ -145,7 +148,9 @@
 		"table-with-messages": "Таблиця повідомлень",
 		"actions": "Дії",
 		"user-avatar-alt": "Аватар користувача",
-		"delete-btn": "Видалити"
+		"delete-btn": "Видалити",
+		"load-more": "Завантажити більше",
+		"no-more-messages": "Немає повідомлень"
 	},
 	"presence-dot": {
 		"online": "В мережі"
@@ -154,5 +159,16 @@
 		"new-message": "Нове повідомлення від користувача {name}",
 		"click-to-view": "Натисність щоб подивитися",
 		"new-like": "{name} вподобав(ла) тебе!"
+	},
+	"filters": {
+		"last-active": "Нещодавні онлайн",
+		"newest-members": "Нові користувачі",
+		"age-range": "Вік",
+		"order-by": "Сортувати за",
+		"order-by-selector": "Сортувальний селектор",
+		"result": "Знайдено:"
+	},
+	"pagination": {
+		"result-text": "Показано {start}-{end} з {totalCount}"
 	}
 }

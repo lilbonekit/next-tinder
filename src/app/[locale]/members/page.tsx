@@ -1,25 +1,31 @@
+import { Member } from '@prisma/client'
 import { fetchCurrentUserLikeIds } from 'app/actions/likeActions'
 import { getMembers } from 'app/actions/membersActions'
+import { getTranslations } from 'next-intl/server'
+import { GetMemberParams } from 'types'
 
-import { MembersCardClient } from './components/MembersCardClient'
+import { PaginationComponent } from '@/components/PaginationComponent'
 
-const Members = async () => {
-	const members = await getMembers()
+import { MembersList } from './components/MembersList'
+
+const Members = async ({ searchParams }: { searchParams: GetMemberParams }) => {
+	const { items: members, totalCount } = await getMembers(searchParams)
 	const likeIds = await fetchCurrentUserLikeIds()
+	const t = await getTranslations('members')
+
+	const isPaginationShown = Boolean(members?.length)
 
 	return (
-		<div className='mt-10'>
-			<ul className='mt-10 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-8'>
-				{members &&
-					members.map((member) => (
-						<MembersCardClient
-							key={member.id}
-							member={member}
-							likeIds={likeIds}
-						/>
-					))}
-			</ul>
-		</div>
+		<>
+			<div className='my-10'>
+				<MembersList
+					members={members as Member[]}
+					likeIds={likeIds}
+					noUsersMessage={t('no-users')}
+				/>
+			</div>
+			{isPaginationShown && <PaginationComponent totalCount={totalCount} />}
+		</>
 	)
 }
 export default Members

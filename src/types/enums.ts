@@ -41,3 +41,13 @@ export enum TOAST_TYPES {
 	like = 'like',
 	newMessage = 'newMessage',
 }
+
+export enum ORDER_BY_LIST {
+	updated = 'updated',
+	created = 'created',
+}
+
+export enum GENDERS {
+	male = 'male',
+	female = 'female',
+}

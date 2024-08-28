@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { updateLastActive } from 'app/actions/membersActions'
 import { Channel, Members } from 'pusher-js'
 import { useCallback, useEffect, useRef } from 'react'
 import { PRESENCE_PUSHER } from 'types/enums'
@@ -43,8 +44,9 @@ export const usePresenceChannel = () => {
 			channelRef.current = pusherClient.subscribe(PRESENCE_PUSHER.presenceNm)
 			channelRef.current.bind(
 				PRESENCE_PUSHER.subscriptionSucceeded,
-				(members: Members) => {
+				async (members: Members) => {
 					handleSetMembers(Object.keys(members.members))
+					await updateLastActive()
 				}
 			)
 

@@ -9,6 +9,7 @@ export const LoadingComponent = ({ label }: { label?: string }) => {
 				color='danger'
 				label={t(label || 'label')}
 				labelColor='foreground'
+				classNames={{ label: 'font-light' }}
 			/>
 		</div>
 	)

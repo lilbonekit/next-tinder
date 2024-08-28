@@ -55,6 +55,9 @@
 		"something-wrong": "Something went wrong",
 		"user-registered": "You have registered successfully"
 	},
+	"members": {
+		"no-users": "No users"
+	},
 	"members-sidebar": {
 		"profile": "Profile",
 		"photos": "Photos",
@@ -145,7 +148,9 @@
 		"table-with-messages": "Table with messages",
 		"actions": "Actions",
 		"user-avatar-alt": "User's image",
-		"delete-btn": "Delete"
+		"delete-btn": "Delete",
+		"load-more": "Load more",
+		"no-more-messages": "No more messages"
 	},
 	"presence-dot": {
 		"online": "Online"
@@ -154,5 +159,16 @@
 		"new-message": "New message from {name}",
 		"click-to-view": "Click to view",
 		"new-like": "{name} has liked you!"
+	},
+	"filters": {
+		"last-active": "Last active",
+		"newest-members": "Newest members",
+		"age-range": " Age range",
+		"order-by": "Order by",
+		"order-by-selector": "Order by selector",
+		"result": "Result:"
+	},
+	"pagination": {
+		"result-text": "Showing {start}-{end} of {totalCount} results"
 	}
 }
