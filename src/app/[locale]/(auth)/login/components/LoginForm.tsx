@@ -3,8 +3,8 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Card, CardBody, CardHeader, Input } from '@nextui-org/react'
 import { loginUser } from 'app/actions/authActions'
-import { useRouter } from 'navigation'
-import { useTranslations } from 'next-intl'
+import { Link, useRouter } from 'navigation'
+import { useLocale, useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
@@ -13,9 +13,12 @@ import { LoadingComponent } from '@/components/LoadingComponent'
 import { formLoginSchema, LoginSchema } from '@/lib/schemas/loginSchema'
 import { getErrorMessage } from '@/lib/util'
 
+import { SocialLogin } from './SocialLogin'
+
 const LoginForm = () => {
 	const router = useRouter()
 	const t = useTranslations('login-form')
+	const locale = useLocale()
 	const [isPending, startTransition] = useTransition()
 
 	const {
@@ -29,7 +32,7 @@ const LoginForm = () => {
 
 	const onSubmit = async (data: LoginSchema) => {
 		startTransition(async () => {
-			const result = await loginUser(data)
+			const result = await loginUser(data, locale)
 
 			if (result.status !== 'success') {
 				toast.error(t(result.error))
@@ -90,6 +93,10 @@ const LoginForm = () => {
 								>
 									<span className='text-light-gradient'>{t('submit-lbl')}</span>
 								</Button>
+								<SocialLogin />
+								<div className='flex justify-center hover:underline text-sm text-pink-950 pt-2'>
+									<Link href='/forgot-password'>{t('forgot-password')}</Link>
+								</div>
 							</div>
 						</form>
 					</CardBody>

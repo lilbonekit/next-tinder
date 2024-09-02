@@ -51,3 +51,13 @@ export enum GENDERS {
 	male = 'male',
 	female = 'female',
 }
+
+export enum REGISTER_FORM_STEPS {
+	userDetails = 0,
+	profileForm = 1,
+}
+
+export enum AUTH_PROVIDERS {
+	google = 'google',
+	github = 'github',
+}

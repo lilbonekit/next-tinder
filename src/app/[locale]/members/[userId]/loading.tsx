@@ -5,7 +5,12 @@ const Loading = async () => {
 	const t = await getTranslations('loading')
 	return (
 		<div className='flex justify-center items-center vertical-center'>
-			<Spinner color='danger' label={t('label')} labelColor='foreground' />
+			<Spinner
+				color='danger'
+				label={t('label')}
+				labelColor='foreground'
+				classNames={{ label: 'font-light' }}
+			/>
 		</div>
 	)
 }

@@ -34,26 +34,64 @@
 		"password-length": "Довжина паролю повинна бути більше 5 символів",
 		"login-successfully": "Ви успішно авторизувалися",
 		"invalid-field": "Неправильно заповнене поле",
+		"not-verified": "Підтвердіть пошту, перед тим як авторизуватися",
+		"invalid-token": "Неправильний токен",
+		"expired-token": "Неактуальний токен",
 		"invalid-credentials": "Неправильний логін або пароль",
-		"something-wrong": "Щось пішло не так!"
+		"something-wrong": "Щось пішло не так!",
+		"user-not-found": "Користувач не знайдений",
+		"success": "Успіх!",
+		"email-not-found": "Електронна адреса не знайдена",
+		"check-email": "Перевірте пошту",
+		"forgot-password": "Забули пароль?",
+		"password-updated": "Пароль успішно оновлено!"
 	},
 	"register-form": {
 		"title": "Реєстрація",
 		"description": "Ласкаво просимо до Next Tinder!",
-		"name-lbl": "Логін",
+		"name-lbl": "Ім'я",
 		"email-lbl": "Електронна пошта",
 		"password-lbl": "Пароль",
-		"submit-lbl": "Зареєструватися",
-		"name-required": "Логін є обов'язковим",
-		"name-length": "Довжина логіну має бути більше за 3 символи",
+		"submit-lbl": "Створити акаунт",
 		"email-required": "Електронна пошта є обов'язковою",
-		"email-invalid": "Неправильна електронна адреса",
+		"email-invalid": "Невірна електронна пошта",
+		"name-required": "Ім'я користувача є обов'язковим",
+		"name-length": "Довжина імені повинна бути більше 3 символів",
 		"password-required": "Пароль є обов'язковим",
-		"password-length": "Довжина паролю повинна бути більше 5 символів",
-		"invalid-field": "Неправильно заповнене поле",
-		"user-exists": "Такий користувач вже зареєстрований!",
-		"something-wrong": "Щось пішло не так!",
-		"user-registered": "Ви успішно зареєструвалися"
+		"password-length": "Довжина пароля повинна бути більше 5 символів",
+		"invalid-field": "Неправильне поле",
+		"user-exists": "Цей користувач вже існує!",
+		"something-wrong": "Щось пішло не так",
+		"user-registered": "Ви успішно зареєстровані",
+		"select-gender": "Виберіть стать",
+		"gender-lbl": "Стать",
+		"at-least-18": "Вам має бути більше 18",
+		"gender-required": "Стать є обов'язковою",
+		"date-of-birth-lbl": "Дата народження",
+		"description-lbl": "Опис",
+		"description-required": "Опис є обов'язковим",
+		"description-length": "Довжина опису повинна бути більше 5 символів",
+		"country-required": "Країна є обов'язковою",
+		"country-length": "Невірна назва країни",
+		"city-required": "Місто є обов'язковим",
+		"city-length": "Невірна назва міста",
+		"country-lbl": "Країна",
+		"date-length": "Дата є обов'язковою",
+		"male": "Чоловік",
+		"female": "Жінка",
+		"city-lbl": "Місто",
+		"back-lbl": "Назад",
+		"next-lbl": "Далі",
+		"unknown-step": "Невідомий крок",
+		"title-update": "Оновіть профіль",
+		"description-update": "Щоб користуватися Next Tinder оновіть свій профіль",
+		"update-lbl": "Оновити",
+		"profile-updated":"Профіль успішно оновлено!"
+	},
+	"register-success": {
+		"title": "Ви успішно зареєструвалися!",
+		"description": "Тепер ви можете увійти в додаток",
+		"login-btn": "Увійти"
 	},
 	"members": {
 		"no-users": "Немає користувачів"
@@ -172,5 +210,31 @@
 	},
 	"pagination": {
 		"result-text": "Показано {start}-{end} з {totalCount}"
+	},
+	"verify-email": {
+		"title": "Верифікація електронної адреси...",
+		"verifying": "Будь ласка, зачекайте..."
+	},
+	"forgot-password": {
+		"title": "Відновлення пароля",
+		"description": "Будь ласка, введіть свою електронну адресу, і ми надішлемо вам посилання для відновлення пароля",
+		"email-lbl": "Введіть email",
+		"submit-lbl": "Надіслати на пошту",
+		"check-email": "Перевірте пошту. Вам щойно було надіслано на вказану пошту лист для відновлення паролю"
+	},
+	"reset-password": {
+		"title": "Створіть новий пароль",
+		"description": "Створіть новий пароль та підтвердіть його",
+		"password-lbl": "Введіть новий пароль",
+		"confirm-password-lbl": "Підтвердіть новий пароль",
+		"password-required": "Пароль є обов'язковим",
+		"password-length": "Довжина паролю повинна бути більше 5 символів",
+		"submit-lbl": "Змінити пароль",
+		"password-updated": "Пароль успішно оновлено!",
+		"invalid-token": "Неправильний токен",
+		"password-do-not-match": "Паролі не співпадають!",
+		"expired-token": "Неактуальний токен",
+		"user-not-found": "Користувач не знайдений",
+		"invalid-field": "Неправильно заповнене поле"
 	}
 }

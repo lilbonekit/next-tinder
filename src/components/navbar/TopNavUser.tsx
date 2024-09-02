@@ -58,8 +58,7 @@ const TopNavUser = ({ user }: TopNavUserProps) => {
 							avatarProps={{
 								...(user?.image ? { src: transformImageUrl(user.image) } : {}),
 								showFallback: true,
-								className: 'transition-transform light-gradient',
-								classNames: { name: 'font-semibold text-main-gradient' },
+								className: 'transition-transform text-neutral-500',
 							}}
 						/>
 					</DropdownItem>

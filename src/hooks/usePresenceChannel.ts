@@ -9,7 +9,13 @@ import { pusherClient } from '@/lib/pusher'
 
 import usePresenceStore from './usePresenceStore'
 
-export const usePresenceChannel = () => {
+interface usePresenceChannelProps {
+	userId?: string | null
+	profileComplete?: boolean
+}
+
+export const usePresenceChannel = (props: usePresenceChannelProps) => {
+	const { userId, profileComplete } = props
 	const { set, add, remove } = usePresenceStore((state) => ({
 		set: state.set,
 		add: state.add,
@@ -40,6 +46,7 @@ export const usePresenceChannel = () => {
 	)
 
 	useEffect(() => {
+		if (!userId || !profileComplete) return
 		if (!channelRef.current) {
 			channelRef.current = pusherClient.subscribe(PRESENCE_PUSHER.presenceNm)
 			channelRef.current.bind(
@@ -80,5 +87,11 @@ export const usePresenceChannel = () => {
 				)
 			}
 		}
-	}, [handleAddMember, handleRemoveMember, handleSetMembers])
+	}, [
+		handleAddMember,
+		handleRemoveMember,
+		handleSetMembers,
+		profileComplete,
+		userId,
+	])
 }

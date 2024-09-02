@@ -17,7 +17,13 @@ import { playNotificationSound } from '@/lib/util'
 
 import useMessageStore from './useMessageStore'
 
-export const useNotificationChannel = (userId?: string | null) => {
+interface useNotificationChannelProps {
+	userId?: string | null
+	profileComplete?: boolean
+}
+
+export const useNotificationChannel = (props: useNotificationChannelProps) => {
+	const { userId, profileComplete } = props
 	const channelRef = useRef<Channel | null>(null)
 	const pathname = usePathname()
 	const searchParams = useSearchParams()
@@ -61,7 +67,7 @@ export const useNotificationChannel = (userId?: string | null) => {
 	}, [])
 
 	useEffect(() => {
-		if (!userId) return
+		if (!userId || !profileComplete) return
 		if (!channelRef.current) {
 			channelRef.current = pusherClient.subscribe(`private-${userId}`)
 			channelRef.current.bind(
@@ -83,5 +89,5 @@ export const useNotificationChannel = (userId?: string | null) => {
 				channelRef.current = null
 			}
 		}
-	}, [userId, handleNewMessage, handleNewLike])
+	}, [userId, handleNewMessage, handleNewLike, profileComplete])
 }

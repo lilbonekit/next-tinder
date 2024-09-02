@@ -6,7 +6,7 @@ export default async function Home() {
 	const session = await auth()
 
 	// TODO: Add it if need to redirect to "/members"
-	redirect('/login')
+	// redirect('/login')
 
 	return (
 		<>

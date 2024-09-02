@@ -27,12 +27,13 @@ export default async function RootLayout({
 	const messages = await getMessages()
 	const session = await auth()
 	const userId = session?.user?.id || null
+	const profileComplete = session?.user.profileComplete
 
 	return (
 		<html lang={locale}>
 			<body>
 				<NextIntlClientProvider messages={messages}>
-					<ProvidersClient userId={userId}>
+					<ProvidersClient userId={userId} profileComplete={profileComplete}>
 						<TopNav />
 						<main className='container mx-auto px-3'>{children}</main>
 					</ProvidersClient>

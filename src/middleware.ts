@@ -27,26 +27,38 @@ const authMiddleware = auth((request) => {
 	const isLoggedIn = Boolean(request.auth)
 	const pathnameWithoutLocale = nextUrl.pathname.replace(/^\/(en|ua)\//, '/')
 
+	const isProviderRoutes = pathnameWithoutLocale.includes('api')
 	const isPublicRoute = publicRoutes.includes(pathnameWithoutLocale)
 	const isAuthRoute = authRoutes.includes(pathnameWithoutLocale)
+	const isProfileComplete = request.auth?.user.profileComplete
 
-	if (isPublicRoute) {
+	if (isPublicRoute && !isProviderRoutes) {
 		intlMiddleware(request)
 		return NextResponse.redirect(new URL('/login', nextUrl))
 	}
 
-	if (isAuthRoute) {
+	if (isAuthRoute && !isProviderRoutes) {
 		return isLoggedIn
 			? NextResponse.redirect(new URL('/members', nextUrl))
 			: intlMiddleware(request)
 	}
 
-	if (!isPublicRoute && !isLoggedIn) {
+	if (!isPublicRoute && !isLoggedIn && !isProviderRoutes) {
 		intlMiddleware(request)
 		return NextResponse.redirect(new URL('/login', nextUrl))
 	}
 
-	return intlMiddleware(request)
+	if (
+		isLoggedIn &&
+		!isProfileComplete &&
+		pathnameWithoutLocale !== '/complete-profile'
+	) {
+		return NextResponse.redirect(new URL('/complete-profile', nextUrl))
+	}
+
+	if (!isProviderRoutes) {
+		return intlMiddleware(request)
+	}
 })
 
 export default authMiddleware

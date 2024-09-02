@@ -13,9 +13,14 @@ import { ToastContainer } from 'react-toastify'
 interface ProvidersProps {
 	children: ReactNode
 	userId?: string | null
+	profileComplete?: boolean
 }
 
-export default function Providers({ children, userId }: ProvidersProps) {
+export default function Providers({
+	children,
+	userId,
+	profileComplete,
+}: ProvidersProps) {
 	const isUnreadCountSet = useRef<boolean>(false)
 	const { updateUnreadCount } = useMessageStore((state) => ({
 		updateUnreadCount: state.updateUnreadCount,
@@ -37,8 +42,8 @@ export default function Providers({ children, userId }: ProvidersProps) {
 		}
 	}, [setUnreadCount, userId])
 
-	usePresenceChannel()
-	useNotificationChannel(userId)
+	usePresenceChannel({ userId, profileComplete })
+	useNotificationChannel({ userId, profileComplete })
 
 	return (
 		<NextUIProvider>

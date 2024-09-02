@@ -35,7 +35,16 @@
 		"login-successfully": "You have been logged in successfully",
 		"invalid-field": "Invalid field",
 		"invalid-credentials": "The user name or password that you entered is not valid",
-		"something-wrong": "Something went wrong!"
+		"not-verified": "Please verify your email before login",
+		"invalid-token": "Invalid token",
+		"expired-token": "The token has expired",
+		"something-wrong": "Something went wrong!",
+		"user-not-found": "User not found",
+		"success": "Success!",
+		"email-not-found": "Email not found",
+		"check-email": "Check your email",
+		"forgot-password": "Forgot password?",
+		"password-updated": "Password successfully updated!"
 	},
 	"register-form": {
 		"title": "Register",
@@ -53,7 +62,36 @@
 		"invalid-field": "Invalid field",
 		"user-exists": "This user exists!",
 		"something-wrong": "Something went wrong",
-		"user-registered": "You have registered successfully"
+		"user-registered": "You have registered successfully",
+		"select-gender": "Select gender",
+		"gender-lbl": "Gender",
+		"at-least-18": "You should be at least 18",
+		"gender-required": "Gender is required",
+		"date-of-birth-lbl": "Date of birth",
+		"description-lbl": "Description",
+		"description-required": "Description is required",
+		"description-length": "Description must be more than 5 characters",
+		"country-required": "Country is required",
+		"country-length": "Invalid country name",
+		"city-required": "City is required",
+		"city-length": "Invalid city name",
+		"country-lbl": "Country",
+		"date-length": "Date is required",
+		"male": "Male",
+		"female": "Female",
+		"city-lbl": "City",
+		"back-lbl": "Back",
+		"next-lbl": "Next",
+		"unknown-step": "Unknown step",
+		"title-update": "Update your profile",
+		"description-update": "Please complete your profile to continue to the app",
+		"update-lbl": "Update profile",
+		"profile-updated": "The profile has been updated successfully"
+	},
+	"register-success": {
+		"title": "You've successfully registered!",
+		"description": "You can now login to the app",
+		"login-btn": "Login"
 	},
 	"members": {
 		"no-users": "No users"
@@ -172,5 +210,31 @@
 	},
 	"pagination": {
 		"result-text": "Showing {start}-{end} of {totalCount} results"
+	},
+	"verify-email": {
+		"title": "Verifying your email address...",
+		"verifying": "Verifying..."
+	},
+	"forgot-password": {
+		"title": "Password resetting",
+		"description": "Please enter your email address and we will send you a link to reset your password",
+		"email-lbl": "Enter email",
+		"submit-lbl": "Send reset email",
+		"check-email": "Check your email. The resend email has been just sent to you"
+	},
+	"reset-password": {
+		"title": "Create a new password",
+		"description": "Create a new password and confirm it",
+		"password-lbl": "Enter new password",
+		"confirm-password-lbl": "Confirm new password",
+		"password-required": "Password is required",
+		"password-length": "Password length must be more than 5 characters",
+		"submit-lbl": "Change password",
+		"password-updated": "Password successfully updated!",
+		"invalid-token": "Invalid token",
+		"password-do-not-match": "Passwords do not match!",
+		"expired-token": "Expired token",
+		"user-not-found": "User not found",
+		"invalid-field": "Invalid field"
 	}
 }

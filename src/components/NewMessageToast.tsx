@@ -43,7 +43,7 @@ export const ActionToast = (props: MessageToastProps | LikeToastProps) => {
 				/>
 			</div>
 			<div className='flex flex-grow flex-col justify-center'>
-				<div className='font-semibold text-[14px]'>
+				<div className='font-semibold text-[12px]'>
 					{truncateString(
 						t(
 							props.type === TOAST_TYPES.newMessage
@@ -56,7 +56,7 @@ export const ActionToast = (props: MessageToastProps | LikeToastProps) => {
 						22
 					)}
 				</div>
-				<div className='text-sm'>{t('click-to-view')}</div>
+				<div className='text-[12px]'>{t('click-to-view')}</div>
 			</div>
 		</Link>
 	)
