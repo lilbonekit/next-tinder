@@ -21,16 +21,18 @@ export const UploadAvatarButton = ({ member }: UploadAvatarButtonProps) => {
 	const t = useTranslations('image-upload-button')
 
 	const onAddImage = async (result: CloudinaryUploadWidgetResults) => {
-		if (result.info && typeof result.info === 'object') {
-			await addImage(result.info.secure_url, result.info.public_id)
-			const uploadedPhoto = await getMemberPhotoByPublicId(
-				result.info.public_id
-			)
-			await setMainImage(uploadedPhoto)
-			router.refresh()
-			return
+		try {
+			if (result.info && typeof result.info === 'object') {
+				await addImage(result.info.secure_url, result.info.public_id)
+				const uploadedPhoto = await getMemberPhotoByPublicId(
+					result.info.public_id
+				)
+				await setMainImage(uploadedPhoto)
+				router.refresh()
+			}
+		} catch (error) {
+			toast.error(t('problem-adding-image'))
 		}
-		toast.error(t('problem-adding-image'))
 	}
 
 	return (

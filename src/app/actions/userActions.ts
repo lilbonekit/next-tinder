@@ -94,6 +94,7 @@ export async function deleteImage(photo: Photo) {
 }
 
 export async function setMainImage(photo: Photo) {
+	if (!photo.isApproved) throw new Error('Only approved photos')
 	try {
 		const userId = await getAuthUserId()
 		await prisma.user.update({

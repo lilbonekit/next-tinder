@@ -13,7 +13,8 @@
 		"lists": "Lists",
 		"messages": "Messages",
 		"login": "Login",
-		"register": "Register"
+		"register": "Register",
+		"photo-moderation": "Photo moderation"
 	},
 	"top-nav-user": {
 		"user-avatar": "User avatar",
@@ -137,7 +138,8 @@
 	},
 	"member": {
 		"edit-profile": "Edit profile",
-		"update-photos": "Update photos"
+		"update-photos": "Update photos",
+		"await-approval": "Awaiting approval..."
 	},
 	"member-edit": {
 		"title": "Edit profile"
@@ -165,7 +167,7 @@
 	},
 	"image-upload-button": {
 		"text": "Upload new image",
-		"problem-adding-image": "Problem adding image"
+		"problem-adding-image": "Problem adding image. Only approved photos could be set as a profile picture"
 	},
 	"chat-form": {
 		"text-plh": "Type a message",
@@ -236,5 +238,10 @@
 		"expired-token": "Expired token",
 		"user-not-found": "User not found",
 		"invalid-field": "Invalid field"
+	},
+	"photo-moderation": {
+		"photos-awaiting-moderation": "Photos awaiting moderation",
+		"alt": "Member photo",
+		"no-photo-msg": "No photos to moderate"
 	}
 }

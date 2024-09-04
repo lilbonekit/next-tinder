@@ -31,10 +31,16 @@ const authMiddleware = auth((request) => {
 	const isPublicRoute = publicRoutes.includes(pathnameWithoutLocale)
 	const isAuthRoute = authRoutes.includes(pathnameWithoutLocale)
 	const isProfileComplete = request.auth?.user.profileComplete
+	const isAdmin = request.auth?.user.role === 'ADMIN'
+	const isAdminRoute = pathnameWithoutLocale.startsWith('/admin')
 
 	if (isPublicRoute && !isProviderRoutes) {
 		intlMiddleware(request)
 		return NextResponse.redirect(new URL('/login', nextUrl))
+	}
+
+	if (isAdminRoute && !isAdmin) {
+		return NextResponse.redirect(new URL('/', nextUrl))
 	}
 
 	if (isAuthRoute && !isProviderRoutes) {
@@ -51,7 +57,8 @@ const authMiddleware = auth((request) => {
 	if (
 		isLoggedIn &&
 		!isProfileComplete &&
-		pathnameWithoutLocale !== '/complete-profile'
+		pathnameWithoutLocale !== '/complete-profile' &&
+		!isAdmin
 	) {
 		return NextResponse.redirect(new URL('/complete-profile', nextUrl))
 	}

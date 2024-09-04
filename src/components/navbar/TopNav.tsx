@@ -15,20 +15,28 @@ const TopNav = async () => {
 	const t = await getTranslations('top-nav')
 	const session = await auth()
 	const userInfo = session?.user && (await getUserInfoForNav())
-	const navItems = [
-		{
-			href: `/members`,
-			label: t('matches'),
-		},
-		{
-			href: '/lists',
-			label: t('lists'),
-		},
-		{
-			href: '/messages',
-			label: t('messages'),
-		},
-	]
+	const navItems =
+		session?.user.role !== 'ADMIN'
+			? [
+					{
+						href: `/members`,
+						label: t('matches'),
+					},
+					{
+						href: '/lists',
+						label: t('lists'),
+					},
+					{
+						href: '/messages',
+						label: t('messages'),
+					},
+			  ]
+			: [
+					{
+						href: `/admin/moderation`,
+						label: t('photo-moderation'),
+					},
+			  ]
 
 	const navItemsButton = [
 		{

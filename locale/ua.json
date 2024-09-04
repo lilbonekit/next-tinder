@@ -13,7 +13,8 @@
 		"lists": "Знайомства",
 		"messages": "Повідомлення",
 		"login": "Увійти",
-		"register": "Зареєструватися"
+		"register": "Зареєструватися",
+		"photo-moderation": "Модерація фото"
 	},
 	"top-nav-user": {
 		"user-avatar": "Аватар користувача",
@@ -137,7 +138,8 @@
 	},
 	"member": {
 		"edit-profile": "Редагувати профіль",
-		"update-photos": "Оновити фотографії"
+		"update-photos": "Оновити фотографії",
+		"await-approval": "Розглядається..."
 	},
 	"member-edit": {
 		"title": "Редагувати профіль"
@@ -236,5 +238,10 @@
 		"expired-token": "Неактуальний токен",
 		"user-not-found": "Користувач не знайдений",
 		"invalid-field": "Неправильно заповнене поле"
+	},
+	"photo-moderation": {
+		"photos-awaiting-moderation": "Фото, що очікують модерації",
+		"alt": "Фото учасника",
+		"no-photo-msg": "Немає фото для модерації"
 	}
 }

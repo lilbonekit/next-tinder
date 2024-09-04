@@ -4,7 +4,9 @@ import { ScrollShadow } from '@nextui-org/react'
 import { Photo } from '@prisma/client'
 import { deleteImage, setMainImage } from 'app/actions/userActions'
 import { useRouter } from 'navigation'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 import { DeleteButton } from '@/components/DeleteButton'
 import { MemberImage } from '@/components/MemberImage'
@@ -31,6 +33,7 @@ export const MembersPhotos = ({
 	mainImageUrl,
 }: MembersPhotosProps) => {
 	const router = useRouter()
+	const t = useTranslations('image-upload-button')
 	const [loading, setIsLoading] = useState({
 		type: '',
 		isLoading: false,
@@ -40,9 +43,14 @@ export const MembersPhotos = ({
 	const onSetMain = async (photo: Photo) => {
 		if (photo.url === mainImageUrl) return
 		setIsLoading({ isLoading: true, id: photo.id, type: LOADING_TYPES.main })
-		await setMainImage(photo)
-		router.refresh()
-		setIsLoading({ isLoading: false, type: '', id: '' })
+		try {
+			await setMainImage(photo)
+			router.refresh()
+		} catch (error) {
+			toast.error(t('problem-adding-image'))
+		} finally {
+			setIsLoading({ isLoading: false, type: '', id: '' })
+		}
 	}
 
 	const onDelete = async (photo: Photo) => {

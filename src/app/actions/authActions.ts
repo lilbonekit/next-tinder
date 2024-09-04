@@ -298,3 +298,12 @@ export async function completeSocialLoginProfile(
 		throw error
 	}
 }
+
+export async function getUserRole() {
+	const session = await auth()
+
+	const role = session?.user.role
+
+	if (!role) throw new Error('not-in-role')
+	return role as 'ADMIN' | 'MEMBER'
+}

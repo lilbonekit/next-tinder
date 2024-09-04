@@ -7,6 +7,7 @@ import { getUnreadMessageCount } from 'app/actions/messageAction'
 import useMessageStore from 'hooks/useMessageStore'
 import { useNotificationChannel } from 'hooks/useNotificationChannel'
 import { usePresenceChannel } from 'hooks/usePresenceChannel'
+import { SessionProvider } from 'next-auth/react'
 import { ReactNode, useCallback, useEffect, useRef } from 'react'
 import { ToastContainer } from 'react-toastify'
 
@@ -46,9 +47,11 @@ export default function Providers({
 	useNotificationChannel({ userId, profileComplete })
 
 	return (
-		<NextUIProvider>
-			<ToastContainer position='top-right' className='z-50' hideProgressBar />
-			{children}
-		</NextUIProvider>
+		<SessionProvider>
+			<NextUIProvider>
+				<ToastContainer position='top-right' className='z-50' hideProgressBar />
+				{children}
+			</NextUIProvider>
+		</SessionProvider>
 	)
 }
