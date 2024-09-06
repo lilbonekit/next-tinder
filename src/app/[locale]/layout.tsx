@@ -28,13 +28,15 @@ export default async function RootLayout({
 	const session = await auth()
 	const userId = session?.user?.id || null
 	const profileComplete = session?.user.profileComplete
+	const AsyncTopNav: JSX.Element = await TopNav()
 
 	return (
 		<html lang={locale}>
 			<body>
 				<NextIntlClientProvider messages={messages}>
 					<ProvidersClient userId={userId} profileComplete={profileComplete}>
-						<TopNav />
+						{/* <TopNav /> */}
+						{AsyncTopNav}
 						<main className='container mx-auto px-3'>{children}</main>
 					</ProvidersClient>
 				</NextIntlClientProvider>

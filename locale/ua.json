@@ -243,5 +243,15 @@
 		"photos-awaiting-moderation": "Фото, що очікують модерації",
 		"alt": "Фото учасника",
 		"no-photo-msg": "Немає фото для модерації"
+	},
+	"delete-message-modal": {
+		"title": "Видалити повідомлення?",
+		"submit-lbl": "Видалити",
+		"cancel-lbl": "Скасувати",
+		"body": "Підтвердження цієї дії видалить повідомлення тільки у Вас"
+	},
+	"start-page": {
+		"title": "Вітаємо у NextTinder!",
+		"continue-lbl": "Розпочати"
 	}
 }

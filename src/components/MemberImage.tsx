@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Image } from '@nextui-org/react'
+import { Button, Image, useDisclosure } from '@nextui-org/react'
 import { Photo } from '@prisma/client'
 import { approvePhoto, rejectPhoto } from 'app/actions/adminActions'
 import { clsx } from 'clsx'
@@ -10,6 +10,8 @@ import { CldImage } from 'next-cloudinary'
 import { useTranslations } from 'next-intl'
 import { ImCheckmark, ImCross } from 'react-icons/im'
 import { toast } from 'react-toastify'
+
+import { AppModal } from './AppModal'
 
 interface MemberImageProps {
 	photo: Photo | null
@@ -21,6 +23,7 @@ export const MemberImage = ({ photo, alt }: MemberImageProps) => {
 	const role = useRole()
 	const isAdmin = role === 'ADMIN'
 	const router = useRouter()
+	const { isOpen, onOpen, onClose } = useDisclosure()
 
 	if (!photo) return null
 
@@ -43,7 +46,7 @@ export const MemberImage = ({ photo, alt }: MemberImageProps) => {
 	}
 
 	return (
-		<>
+		<div className='cursor-pointer' onClick={onOpen}>
 			{photo?.publicId ? (
 				<CldImage
 					alt={alt}
@@ -92,6 +95,34 @@ export const MemberImage = ({ photo, alt }: MemberImageProps) => {
 					</Button>
 				</div>
 			)}
-		</>
+			<AppModal
+				imageModal={true}
+				isOpen={isOpen}
+				onClose={onClose}
+				body={
+					<>
+						{photo?.publicId ? (
+							<CldImage
+								alt={alt}
+								src={photo.publicId}
+								width={750}
+								height={750}
+								className={clsx('rounded-2xl aspect-square object-cover', {
+									'opacity-40': !photo.isApproved && !isAdmin,
+								})}
+								priority
+							/>
+						) : (
+							<Image
+								width={750}
+								src={photo?.url || '/images/user.png'}
+								alt={alt}
+								className='object-cover aspect-square'
+							/>
+						)}
+					</>
+				}
+			/>
+		</div>
 	)
 }

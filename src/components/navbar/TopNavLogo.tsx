@@ -1,4 +1,4 @@
-import { Link as NextUILink } from '@nextui-org/react'
+import { Link } from 'navigation'
 import { useTranslations } from 'next-intl'
 import { BsFillBalloonHeartFill } from 'react-icons/bs'
 
@@ -7,7 +7,7 @@ const TopNavLogo = () => {
 
 	return (
 		<>
-			<NextUILink href='/'>
+			<Link href='/members' className='flex transition-all hover:opacity-90'>
 				<BsFillBalloonHeartFill size={40} className='text-pink-950' />
 				<div className='font-bold text-3xl flex text-pink-950'>
 					<span className='text-pink-950 font-light'>{t('next')}</span>
@@ -15,7 +15,7 @@ const TopNavLogo = () => {
 						{t('tinder')}
 					</span>
 				</div>
-			</NextUILink>
+			</Link>
 		</>
 	)
 }

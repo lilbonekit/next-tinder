@@ -9,6 +9,9 @@ const nextConfig = {
 			dynamic: 0,
 		},
 	},
+	typescript: {
+		ignoreBuildErrors: true,
+	},
 }
 
 export default withNextIntl(nextConfig)

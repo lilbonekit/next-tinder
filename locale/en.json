@@ -243,5 +243,15 @@
 		"photos-awaiting-moderation": "Photos awaiting moderation",
 		"alt": "Member photo",
 		"no-photo-msg": "No photos to moderate"
+	},
+	"delete-message-modal": {
+		"title": "Delete message?",
+		"submit-lbl": "Delete",
+		"cancel-lbl": "Cancel",
+		"body": "Confirming this action will only delete the message from your side"
+	},
+	"start-page": {
+		"title": "Welcome to NextTinder!",
+		"continue-lbl": "Continue"
 	}
 }

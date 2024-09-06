@@ -5,6 +5,8 @@ import {
 
 import { ListTabs } from './components/ListTabs'
 
+export const dynamic = 'force-dynamic'
+
 const ListsPage = async ({
 	searchParams,
 }: {

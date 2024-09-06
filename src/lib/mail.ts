@@ -7,7 +7,7 @@ export async function sendVerificationEmail(
 	token: string,
 	locale: string
 ) {
-	const link = `${process.env.NEXT_PUBLIC_BASE_URL}${locale}/verify-email?token=${token}`
+	const link = `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/verify-email?token=${token}`
 
 	return resend.emails.send({
 		from: 'testing@resend.dev',
@@ -29,7 +29,7 @@ export async function sendPasswordResetEmail(
 	token: string,
 	locale: string
 ) {
-	const link = `${process.env.NEXT_PUBLIC_BASE_URL}${locale}/reset-password?token=${token}`
+	const link = `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/reset-password?token=${token}`
 
 	return resend.emails.send({
 		from: 'testing@resend.dev',

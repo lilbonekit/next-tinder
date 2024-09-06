@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { Divider } from '@nextui-org/react'
 import { getUnapprovedPhotos } from 'app/actions/adminActions'
 import { getTranslations } from 'next-intl/server'

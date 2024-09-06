@@ -42,6 +42,7 @@ export const ListTabs = ({ members, likeIds }: ListTabsProps) => {
 			className='flex flex-col mt-10 gap-5 w-full lg:w-2/5 mx-auto'
 			aria-label={t('aria-label')}
 			items={tabs}
+			selectedKey={searchParams.get('type')}
 			onSelectionChange={(key) => handleTabChange(key)}
 		>
 			{(item) => (

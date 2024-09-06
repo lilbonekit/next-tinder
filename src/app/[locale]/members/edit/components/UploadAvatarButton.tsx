@@ -27,7 +27,7 @@ export const UploadAvatarButton = ({ member }: UploadAvatarButtonProps) => {
 				const uploadedPhoto = await getMemberPhotoByPublicId(
 					result.info.public_id
 				)
-				await setMainImage(uploadedPhoto)
+				await setMainImage(uploadedPhoto, true)
 				router.refresh()
 			}
 		} catch (error) {
