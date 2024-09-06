@@ -10,7 +10,7 @@ export async function sendVerificationEmail(
 	const link = `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/verify-email?token=${token}`
 
 	return resend.emails.send({
-		from: 'testing@resend.dev',
+		from: 'mail@nexttindersigmavercel.college',
 		to: email,
 		subject:
 			locale === 'en'
@@ -32,7 +32,7 @@ export async function sendPasswordResetEmail(
 	const link = `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/reset-password?token=${token}`
 
 	return resend.emails.send({
-		from: 'testing@resend.dev',
+		from: 'mail@nexttindersigmavercel.college',
 		to: email,
 		subject: locale === 'en' ? 'Reset your password' : 'Відновіть пароль',
 		html: `

@@ -91,7 +91,7 @@
 	},
 	"register-success": {
 		"title": "You've successfully registered!",
-		"description": "You can now login to the app",
+		"description": "Please verify your email address before you can login",
 		"login-btn": "Login"
 	},
 	"members": {
