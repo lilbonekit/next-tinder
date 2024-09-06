@@ -3,7 +3,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input } from '@nextui-org/react'
 import { createMessage } from 'app/actions/messageAction'
-import { useRouter } from 'navigation'
 import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useEffect } from 'react'
@@ -15,7 +14,6 @@ import { MessageSchema, messageSchema } from '@/lib/schemas/messageSchema'
 import { handleFormServerErrors } from '@/lib/util'
 
 export const ChatForm = () => {
-	const router = useRouter()
 	const params = useParams<{ userId: string }>()
 	const t = useTranslations('chat-form')
 
@@ -44,7 +42,6 @@ export const ChatForm = () => {
 		}
 
 		reset()
-		router.refresh()
 		setTimeout(() => setFocus('text'), 500)
 	}
 
