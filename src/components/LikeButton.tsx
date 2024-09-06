@@ -1,7 +1,9 @@
 'use client'
 
 import { toggleLikeMember } from 'app/actions/likeActions'
+import clsx from 'clsx'
 import { useRouter } from 'navigation'
+import { useTransition } from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 
 interface LikeButtonProps {
@@ -11,10 +13,13 @@ interface LikeButtonProps {
 
 export const LikeButton = ({ targetId, hasLiked }: LikeButtonProps) => {
 	const router = useRouter()
+	const [isPending, startTransition] = useTransition()
 
-	async function toggleLike() {
-		await toggleLikeMember(targetId, hasLiked)
-		router.refresh()
+	function toggleLike() {
+		startTransition(async () => {
+			await toggleLikeMember(targetId, hasLiked)
+			router.refresh()
+		})
 	}
 
 	return (
@@ -24,11 +29,17 @@ export const LikeButton = ({ targetId, hasLiked }: LikeButtonProps) => {
 		>
 			<AiOutlineHeart
 				size={28}
-				className='fill-white absolute -top-[2px] -right-[2px]'
+				className={clsx('fill-white absolute -top-[2px] -right-[2px]', {
+					'opacity-50': isPending,
+				})}
 			/>
 			<AiFillHeart
 				size={24}
-				className={hasLiked ? 'fill-rose-500' : 'fill-neutral-500'}
+				className={clsx('', {
+					'fill-rose-500': hasLiked,
+					'fill-neutral-500': !hasLiked,
+					'opacity-50': isPending,
+				})}
 			/>
 		</div>
 	)
